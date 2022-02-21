@@ -1,6 +1,6 @@
 # ARMA Mission Framework for DCS Finland community
 
-Edit [**config\config.hpp**](config\config.hpp) and [**config\config.sqf**](config\config.sqf) for your mission needs.
+Edit [**config\config.hpp**](config/config.hpp) and [**config\config.sqf**](config/config.sqf) for your mission needs.
 
 Usable functions that you can add to object init line:
 - **Add mousewheel actions to object for quick loadout selection**
