@@ -1,0 +1,42 @@
+// Get config
+#include "config\config.hpp"
+
+//  1 = Respawn on start. Run respawn script on start.
+//  0 = Dont respawn on start. Run respawn script on start.
+// -1 = Dont respawn on start. Don't run respawn script on start.
+respawnOnStart = -1;
+
+// Multiplayer setting that removes all playable units which do not have a human player.
+// When AI is disabled, a player logging out will not have AI take control of his character.
+// 0 = Enable AI
+// 1 = Disable AI
+disabledAI = 1;
+
+// When enabled, joining player will join the mission bypassing role selection screen. The joinUnassigned param will be set to 0 automatically,
+// so that player receives 1st available role from mission template. When leaving such mission, player will go straight back to server browser.
+// 0 = Disable
+// 1 = Enable
+skipLobby = 0;
+
+// Force enable or disable RotorLib.
+// 0 = Options based
+// 1 = Force enable
+// 2 = Force disable
+forceRotorLibSimulation = 1;
+
+// Toggle saving possibility.
+// 0 = Disable
+// 1 = Enable
+saving = 0;
+
+// Allow access to the debug console for admins and players with their UID in this list
+enableTargetDebug = 1;
+enableDebugConsole[] = {
+	"76561197973228737"		// Stone
+};
+
+// Functions
+class CfgFunctions {
+	#include "include\CfgFunctions.hpp"
+	// You can add your functions here
+};
