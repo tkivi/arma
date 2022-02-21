@@ -2,8 +2,7 @@
 
 Edit **config\config.hpp** and **config\config.sqf** for your mission needs.
 
-Here are some usable functions that you can add to object init line:
-
+###### Usable functions that you can add to object init line:
 - **Add mousewheel actions to object for quick loadout selection**
   - *[this] call STNE_fnc_action_addLoadouts;*
 - **Add ACE action to object for MRHSatellite TV screen**
