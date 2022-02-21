@@ -15,5 +15,3 @@ Usable functions that you can add to object init line:
   >*[this] call STNE_fnc_arsenal_addMedical;*
 - **Add ACE arsenal to object with SOG gear only**
   >*[this] call STNE_fnc_arsenal_addSOG;*
-
-[Contribution guidelines for this project](docs/CONTRIBUTING.md)
