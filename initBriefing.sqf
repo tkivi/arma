@@ -1,10 +1,8 @@
-#include "initBriefing.sqf"
-#include "include\initPlayerLocal.sqf"
 /*/////////////////////////////////////////////////////////////////////////////////////
 
-	Parameters:
+	Custom briefing. Here you can add you own briefing script commands.
 
-	[player:Object, didJIP:Boolean]
+	https://community.bistudio.com/wiki/Category:Command_Group:_Briefing
 
 ///////////////////////////////////////////////////////////////////////////////////////
 // You can add your code below this line ////////////////////////////////////////////*/

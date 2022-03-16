@@ -9,6 +9,12 @@
 // Exit if player is not actual human player
 if !(hasInterface) exitWith {};
 
+// Wait until player
+waitUntil {!isNull player};
+
+// Briefing text
+[] call STNE_fnc_briefing_addText;
+
 // Wait until server init is done
 waitUntil {sleep 1; !(isNil "STNE_server_Init")};
 
@@ -63,9 +69,6 @@ if (missionNamespace getVariable ["STNE_respawn_Loadouts", false]) then {
 		};
 	};
 };
-
-// Briefing text
-[] call STNE_fnc_briefing_addText;
 
 // Add ZEUS modules
 [] call STNE_fnc_zeus_addModules;

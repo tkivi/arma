@@ -38,7 +38,7 @@ player createDiaryRecord
 	[
 		"Mission Framework",
 		format [
-			"%1%2%3%4%5%6%7%8%9%10%11%12%13%14%15",
+			"%1%2%3%4%5%6%7%8%9%10%11%12%13%14%15%16%17",
 			["Server: ", serverName] call STNE_fnc_briefing_getLine,
 			["Map: ", getText (configfile >> "CfgWorlds" >> worldName >> "description")] call STNE_fnc_briefing_getLine,
 			["Mission: ", briefingName] call STNE_fnc_briefing_getLine,
@@ -53,7 +53,9 @@ player createDiaryRecord
 			["", ""] call STNE_fnc_briefing_getLine,
 			["Extended Vehicle in Vehicle logistic: ", missionNamespace getVariable ["STNE_logistic_ViV", false]] call STNE_fnc_briefing_getLine,
 			["", ""] call STNE_fnc_briefing_getLine,
-			["Sandbox: ", missionNamespace getVariable ["STNE_sandbox_Enabled", false]] call STNE_fnc_briefing_getLine
+			["Sandbox: ", missionNamespace getVariable ["STNE_sandbox_Enabled", false]] call STNE_fnc_briefing_getLine,
+			["", ""] call STNE_fnc_briefing_getLine,
+			["Version: ", "220316"] call STNE_fnc_briefing_getLine
 		]
 	]
 ];

@@ -1,6 +1,10 @@
 # ARMA Mission Framework for DCS Finland community
 
+Version: 220316
+
 Edit [**config\config.hpp**](config/config.hpp) and [**config\config.sqf**](config/config.sqf) for your mission needs.
+
+Add your custom briefing script commands to [**initBriefing.sqf**](initBriefing.sqf) if needed.
 
 Usable functions that you can add to object init line:
 - **Add mousewheel actions to object for quick loadout selection**
