@@ -3,6 +3,7 @@
 Version: 220822
 
 Edit [**config\config.hpp**](config/config.hpp) and [**config\config.sqf**](config/config.sqf) for your mission needs.
+
 (optional) You can add your custom music [**config\music.hpp**](config/music.hpp) or sound [**config\sound.hpp**](config/sound.hpp).
 
 Add your custom briefing script commands to [**initBriefing.sqf**](initBriefing.sqf) if needed.
