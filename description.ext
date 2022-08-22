@@ -40,3 +40,17 @@ class CfgFunctions {
 	#include "include\CfgFunctions.hpp"
 	// You can add your functions here
 };
+
+// Custom music
+class CfgMusic
+{
+	tracks[] = {};
+	#include "config\music.hpp"
+};
+
+// Custom sound
+class CfgSounds
+{
+	sounds[] = {};
+	#include "config\sound.hpp"
+};

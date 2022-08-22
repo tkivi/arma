@@ -29,4 +29,8 @@ if (isNull (getAssignedCuratorLogic player)) then {
 };
 
 // Add players as editable objects
-[] remoteExec ["STNE_fnc_zeus_addPlayers", 2];
+if ("BLINDZEUS" in STNE_server_Mods) then {
+	// BlindZeus mod enabled, skip
+} else {
+	[] remoteExec ["STNE_fnc_zeus_addPlayers", 2];
+};

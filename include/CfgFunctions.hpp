@@ -11,6 +11,10 @@
 			class action_addSatelliteTV {};
 			class action_addSpectator {};
 		};
+		class ai {
+			file = "functions\STNE\ai";
+			class ai_charge {};
+		};
 		class arsenal {
 			file = "functions\STNE\arsenal";
 			class arsenal_addLoadouts {};
@@ -31,6 +35,15 @@
 		class event {
 			file = "functions\STNE\event";
 			class event_addEvents {preInit = 1;};
+		};
+		class save {
+			file = "functions\STNE\save";
+			class save_getCargo {};
+			class save_getCargoBackpack {};
+			class save_getCargoItem {};
+			class save_getCargoMagazine {};
+			class save_getCargoWeapon {};
+			class save_getSQF {};
 		};
 		class server {
 			file = "functions\STNE\server";

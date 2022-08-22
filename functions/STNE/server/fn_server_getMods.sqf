@@ -41,6 +41,7 @@ STNE_server_Mods = [];
 	["murshun_cigs", "IMMERSIONCIGS"],
 	["MRHSatellite", "MRHSATELLITE"],
 	["cTab", "CTAB"],
-	["vn_misc", "SOG"]
+	["vn_misc", "SOG"],
+	["Bum_BlindZeus", "BLINDZEUS"]
 ];
 publicVariable "STNE_server_Mods";

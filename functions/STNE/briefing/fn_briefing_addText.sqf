@@ -55,7 +55,7 @@ player createDiaryRecord
 			["", ""] call STNE_fnc_briefing_getLine,
 			["Sandbox: ", missionNamespace getVariable ["STNE_sandbox_Enabled", false]] call STNE_fnc_briefing_getLine,
 			["", ""] call STNE_fnc_briefing_getLine,
-			["Version: ", "220316"] call STNE_fnc_briefing_getLine,
+			["Version: ", "220822"] call STNE_fnc_briefing_getLine,
 			["", ""] call STNE_fnc_briefing_getLine,
 			["Mission Framework by Stone.", ""] call STNE_fnc_briefing_getLine
 		]

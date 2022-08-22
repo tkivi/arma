@@ -23,7 +23,7 @@ respawn = 3;
 // Lets players select from available respawn positions defined either by respawn markers or by Zeus.
 // https://community.bistudio.com/wiki/Arma_3:_Respawn#Respawn_Templates
 // Use "ace_spectator" for ACE spectator.
-// https://ace3mod.com/wiki/framework/spectator-framework.html
+// https://ace3.acemod.org/wiki/framework/spectator-framework.html
 respawnTemplates[] = {"MenuPosition"};
 
 // Set respawn delay in seconds.
