@@ -56,3 +56,8 @@ if ("INIDBI2" in STNE_server_Mods) then {
 	};
 	["write", [_PlayerUID, "InVehicle", _InVehicle]] call INIDBI_players;
 };
+
+// Delete player if disconnected
+if !(_DisconnectUID isEqualTo "") then {
+	deleteVehicle _Player;
+};

@@ -31,6 +31,8 @@ private _CargoBags = [[],[]];
 private _Fuel = 1;
 private _Damage = 0;
 private _DamageHP = [];
+private _Pylons = [];
+private _Magazines = [];
 
 // INIDBI2 load
 if ("INIDBI2" in STNE_server_Mods) then {
@@ -47,6 +49,8 @@ if ("INIDBI2" in STNE_server_Mods) then {
 		_Fuel = ["read", [_ID, "Fuel", _Fuel]] call INIDBI_objects;
 		_Damage = ["read", [_ID, "Damage", _Damage]] call INIDBI_objects;
 		_DamageHP = ["read", [_ID, "DamageHP", _DamageHP]] call INIDBI_objects;
+		_Pylons = ["read", [_ID, "Pylons", _Pylons]] call INIDBI_objects;
+		_Magazines = ["read", [_ID, "Magazines", _Magazines]] call INIDBI_objects;
 	};
 };
 
@@ -79,6 +83,7 @@ if !(_Type isEqualTo "") then {
 	};
 	// Vehicle status
 	if (missionNamespace getVariable ["STNE_database_VehicleStatus", false]) then {
+		// Damage, fuel
 		if !(_Fuel isEqualTo 1) then {_Object setFuel _Fuel;};
 		if !(_Damage isEqualTo 0) then {_Object setDamage _Damage;};
 		if !(_DamageHP isEqualTo []) then {
@@ -86,6 +91,28 @@ if !(_Type isEqualTo "") then {
 				_Object setHitIndex [_i, ((_DamageHP select 2) select _i)];
 			};
 		};
+		// Remove old pylons and magazines
+		if ((count (magazinesAllTurrets _Object)) > 0) then {
+			{
+				_Object removeMagazineTurret [_x select 0, _x select 1];
+			} forEach magazinesAllTurrets _Object;
+		};
+		if !((count (getPylonMagazines _Object)) isEqualTo 0) then {
+			{
+				_Object setPylonLoadOut [(_foreachindex + 1), ""];
+			} forEach getPylonMagazines _Object;
+		};
+		// Pylons
+		if !(_Pylons isEqualTo []) then {
+			{
+				_Object setPylonLoadOut [(_foreachindex + 1), (_x select 0), true];
+				_Object setAmmoOnPylon [(_foreachindex + 1), (_x select 1)];
+			} forEach _Pylons;
+		};
+		// Magazines
+		{
+			_Object addMagazineTurret _x;
+		} forEach _Magazines;
 	};
 	// Location
 	_Object setVectorDirAndUp [_VectorDir, _VectorUp];

@@ -35,8 +35,21 @@ if ("INIDBI2" in STNE_server_Mods) then {
 			if (missionNamespace getVariable ["STNE_database_PlayerLocation", false]) then {
 				private _PlayerLocation = ["read", [_PlayerUID, "Location", [0,0,0]]] call INIDBI_players;
 				private _PlayerHeading = ["read", [_PlayerUID, "Heading", 0]] call INIDBI_players;
-				[_Player, _PlayerHeading] remoteExec ["setDir", _Player];
-				[_Player, _PlayerLocation] remoteExec ["setPosWorld", _Player];
+				private _InVehicleID = ["read", [_PlayerUID, "InVehicle", ""]] call INIDBI_players;
+				private _InVehicleObject = objNull;
+				if !(_InVehicleID isEqualTo "") then {
+					{
+						if (_x getVariable ["STNE_database_ID", ""] isEqualTo _InVehicleID) exitWith {
+							_InVehicleObject = _x;
+						};
+					} forEach STNE_database_AllObjects;
+				};
+				if !(_InVehicleObject isEqualTo objNull) then {
+					[_Player, _InVehicleObject] remoteExec ["moveInAny", _Player];
+				} else {
+					[_Player, _PlayerHeading] remoteExec ["setDir", _Player];
+					[_Player, _PlayerLocation] remoteExec ["setPosWorld", _Player];
+				};
 			};
 			if (missionNamespace getVariable ["STNE_database_PlayerTraits", false]) then {
 				private _PlayerTraits = ["read", [_PlayerUID, "Traits", []]] call INIDBI_players;
@@ -52,14 +65,6 @@ if ("INIDBI2" in STNE_server_Mods) then {
 					_Player setVariable ["ace_medical_medicClass", _ACE_medic, true];
 					_Player setVariable ["ACE_IsEngineer", _ACE_engineer, true];
 				};
-			};
-			private _InVehicle = ["read", [_PlayerUID, "InVehicle", ""]] call INIDBI_players;
-			if !(_InVehicle isEqualTo "") then {
-				{
-					if (_x getVariable ["STNE_database_ID", ""] isEqualTo _InVehicle) exitWith {
-						[_Player, _x] remoteExec ["moveInAny", _Player];
-					};
-				} forEach STNE_database_AllObjects; // allMissionObjects "All";
 			};
 		};
 	};

@@ -9,6 +9,13 @@
 // Exit if player is not actual human player
 if !(hasInterface) exitWith {};
 
+// Set black screen if loading from database = hide possible player relocation
+if (missionNamespace getVariable ["STNE_database_Enabled", false]) then {
+	if ("INIDBI2" in STNE_server_Mods) then {
+		titleText ["Reading database, please wait...", "BLACK", 0.001];
+	};
+};
+
 // Wait until player
 waitUntil {!isNull player};
 
