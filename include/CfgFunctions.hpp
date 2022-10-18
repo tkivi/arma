@@ -21,11 +21,27 @@
 			class arsenal_addMedical {};
 			class arsenal_addSandbox {};
 			class arsenal_addSOG {};
+			class arsenal_addWS {};
 		};
 		class briefing {
 			file = "functions\STNE\briefing";
 			class briefing_addText {};
 			class briefing_getLine {};
+		};
+		class database {
+			file = "functions\STNE\database";
+			class database_generateID {};
+			class database_hasInventory {};
+			class database_loadObject {};
+			class database_loadPlayer {};
+			class database_loadStatic {};
+			class database_readDatabase {};
+			class database_removeID {};
+			class database_saveObject {};
+			class database_savePlayer {};
+			class database_saveStatic {};
+			class database_showID {};
+			class database_writeDatabase {};
 		};
 		class eden {
 			file = "functions\STNE\eden";

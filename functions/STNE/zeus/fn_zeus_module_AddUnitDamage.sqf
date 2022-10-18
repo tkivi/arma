@@ -1,6 +1,6 @@
 // ZEUS MODULE: DCSARMA - Add unit damage
 if ("ACE" in STNE_server_Mods) then {
-	["DCSARMA", "Add Unit Damage",
+	["DCSARMA Unit", "Add Unit Damage",
 		{
 			private _module_position = param [0, [0,0,0], [[]]];
 			private _selected_object = param [1, ObjNull, [ObjNull]];

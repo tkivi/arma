@@ -1,6 +1,6 @@
 // ZEUS MODULE: DCSARMA - Smoke Cigarette
 if ("IMMERSIONCIGS" in STNE_server_Mods) then {
-	["DCSARMA", "Smoke Cigarette",
+	["DCSARMA Unit", "Smoke Cigarette",
 		{
 			private _module_position = param [0, [0,0,0], [[]]];
 			private _selected_object = param [1, ObjNull, [ObjNull]];

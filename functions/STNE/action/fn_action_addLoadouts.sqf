@@ -18,7 +18,7 @@ if ((count (missionNamespace getVariable ["STNE_arsenal_Loadouts", [[],[]]] sele
     {
         _selected_object addAction
         [
-            format ["- Loadout: <t color='" + STNE_server_Color + "'>%1</t>", (_x select 0)],
+            format ["- Loadout: <t color='" + STNE_server_ColorHEX + "'>%1</t>", (_x select 0)],
             {
                 params ["_target", "_caller", "_actionId", "_arguments"];
                 _caller setUnitLoadout [(_arguments select 1), true];

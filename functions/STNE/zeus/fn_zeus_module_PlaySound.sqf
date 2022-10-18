@@ -1,6 +1,6 @@
 // ZEUS MODULE: DCSARMA - Play Sound
 if ((count ("true" configClasses (missionConfigFile >> "CfgSounds") apply {configName _x})) > 0) then {
-	["DCSARMA", "Play Sound 3D",
+	["DCSARMA Audio", "Play Sound 3D",
 		{
 			private _module_position = param [0, [0,0,0], [[]]];
 			private _selected_object = param [1, ObjNull, [ObjNull]];

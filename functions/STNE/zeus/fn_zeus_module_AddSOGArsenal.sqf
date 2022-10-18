@@ -1,6 +1,6 @@
 // ZEUS MODULE: DCSARMA - Add SOG Arsenal
 if ("SOG" in STNE_server_Mods) then {
-	["DCSARMA", "Add SOG Arsenal",
+	["DCSARMA Arsenal", "Add SOG Arsenal",
 		{
 			private _module_position = param [0, [0,0,0], [[]]];
 			private _selected_object = param [1, ObjNull, [ObjNull]];

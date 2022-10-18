@@ -1,6 +1,6 @@
 // ZEUS MODULE: DCSARMA - Spawn Server Group Custom
 if (count (missionNamespace getVariable ["STNE_server_CustomGroups", []]) > 0) then {
-	["DCSARMA", "Spawn Server Group Custom",
+	["DCSARMA Spawn", "Spawn Server Group Custom",
 		{
 			private _module_position = param [0, [0,0,0], [[]]];
 			private _selected_object = param [1, ObjNull, [ObjNull]];

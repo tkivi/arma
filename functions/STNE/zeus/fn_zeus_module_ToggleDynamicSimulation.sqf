@@ -1,5 +1,5 @@
 // ZEUS MODULE: DCSARMA - Toggle Dynamic Simulation
-["DCSARMA", "Toggle Dynamic Simulation",
+["DCSARMA Tools", "Toggle Dynamic Simulation",
     {
         private _module_position = param [0, [0,0,0], [[]]];
         private _selected_object = param [1, ObjNull, [ObjNull]];

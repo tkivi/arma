@@ -1,6 +1,6 @@
 // ZEUS MODULE: DCSARMA - Play Music
 if ((count ("true" configClasses (missionConfigFile >> "CfgMusic") apply {configName _x})) > 0) then {
-	["DCSARMA", "Play Music",
+	["DCSARMA Audio", "Play Music",
 		{
 			private _module_position = param [0, [0,0,0], [[]]];
 			private _selected_object = param [1, ObjNull, [ObjNull]];

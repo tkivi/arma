@@ -38,7 +38,7 @@ player createDiaryRecord
 	[
 		"Mission Framework",
 		format [
-			"%1%2%3%4%5%6%7%8%9%10%11%12%13%14%15%16%17%18%19",
+			"%1%2%3%4%5%6%7%8%9%10%11%12%13%14%15%16%17%18%19%20%21%22",
 			["Server: ", serverName] call STNE_fnc_briefing_getLine,
 			["Map: ", getText (configfile >> "CfgWorlds" >> worldName >> "description")] call STNE_fnc_briefing_getLine,
 			["Mission: ", briefingName] call STNE_fnc_briefing_getLine,
@@ -53,9 +53,12 @@ player createDiaryRecord
 			["", ""] call STNE_fnc_briefing_getLine,
 			["Extended Vehicle in Vehicle logistic: ", missionNamespace getVariable ["STNE_logistic_ViV", false]] call STNE_fnc_briefing_getLine,
 			["", ""] call STNE_fnc_briefing_getLine,
-			["Sandbox: ", missionNamespace getVariable ["STNE_sandbox_Enabled", false]] call STNE_fnc_briefing_getLine,
+			["Sandbox Arsenal: ", missionNamespace getVariable ["STNE_sandbox_Arsenal", false]] call STNE_fnc_briefing_getLine,
+			["Sandbox Zeus: ", missionNamespace getVariable ["STNE_sandbox_Zeus", false]] call STNE_fnc_briefing_getLine,
 			["", ""] call STNE_fnc_briefing_getLine,
-			["Version: ", "220822"] call STNE_fnc_briefing_getLine,
+			["Persistent Save: ", missionNamespace getVariable ["STNE_database_Enabled", false]] call STNE_fnc_briefing_getLine,
+			["", ""] call STNE_fnc_briefing_getLine,
+			["Version: ", "221018"] call STNE_fnc_briefing_getLine,
 			["", ""] call STNE_fnc_briefing_getLine,
 			["Mission Framework by Stone.", ""] call STNE_fnc_briefing_getLine
 		]
@@ -63,12 +66,11 @@ player createDiaryRecord
 ];
 
 // Show info text middle of screen if in sandbox mode
-if (missionNamespace getVariable ["STNE_sandbox_Enabled", false]) then {
+if (missionNamespace getVariable ["STNE_sandbox_Zeus", false]) then {
 	[] spawn {
 		private _PlayerPos = getPos player;
 		private _WelcomeText = [
 			format ["Welcome to %1, %2 !", getText (configfile >> "CfgWorlds" >> worldName >> "description"), (player call BIS_fnc_position) call BIS_fnc_locationDescription],
-			"Sandbox mode enabled",
 			format ["Press %1 to enter Zeus mode", actionKeysNames "curatorInterface"] // https://community.bistudio.com/wiki/inputAction/actions
 		];
 		waitUntil {sleep 3; !(_PlayerPos isEqualTo (getPos player))};

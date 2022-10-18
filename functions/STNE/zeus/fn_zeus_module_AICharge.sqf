@@ -1,5 +1,5 @@
 // ZEUS MODULE: DCSARMA - AI Charge
-["DCSARMA", "AI Charge",
+["DCSARMA Unit", "AI Charge",
 	{
 		private _module_position = param [0, [0,0,0], [[]]];
 		private _selected_object = param [1, ObjNull, [ObjNull]];

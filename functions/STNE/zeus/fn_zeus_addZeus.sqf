@@ -15,7 +15,7 @@
 if (isNull (getAssignedCuratorLogic player)) then {
 	// Add Zeus if defined
 	private _PlayerUID = getPlayerUID player;
-	private _Sandbox = missionNamespace getVariable ["STNE_sandbox_Enabled", false];
+	private _Sandbox = missionNamespace getVariable ["STNE_sandbox_Zeus", false];
 	private _SqfUID = missionNamespace getVariable ["STNE_zeus_PlayerUID", []];
 	private _ExtUID = getMissionConfigValue ["enableDebugConsole", []];
 

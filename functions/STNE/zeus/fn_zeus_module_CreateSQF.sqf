@@ -1,5 +1,5 @@
 // ZEUS MODULE: DCSARMA - Create SQF
-["DCSARMA", "Create SQF",
+["DCSARMA Tools", "Create SQF",
 	{
 		private _module_position = param [0, [0,0,0], [[]]];
 		private _selected_object = param [1, ObjNull, [ObjNull]];

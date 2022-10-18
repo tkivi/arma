@@ -19,19 +19,25 @@ if ("ZEN" in STNE_server_Mods) then {
 		"AddLoadoutActions",
 		"AddLoadoutArsenal",
 		"AddMedicalArsenal",
-		"AddSOGArsenal",
 		"AddRespawn",
 		"AddSatelliteTV",
+		"AddSOGArsenal",
 		"AddSpectator",
 		"AddUnitDamage",
+		"AddWSArsenal",
 		"AICharge",
 		"ChangeServerSettings",
 		"CreateSQF",
+		"DatabaseGenerateID",
+		"DatabaseRemoveID",
+		"DatabaseShowID",
+		"DatabaseWrite",
 		"PlayMusic",
 		"PlaySound",
 		"SmokeCigarette",
 		"SpawnServerGroup",
 		"SpawnServerGroupCustom",
-		"ToggleDynamicSimulation"
+		"ToggleDynamicSimulation",
+		"TraceBullets"
 	];
 };

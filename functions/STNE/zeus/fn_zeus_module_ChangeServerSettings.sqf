@@ -1,5 +1,5 @@
 // ZEUS MODULE: DCSARMA - Server Settings
-["DCSARMA", "Change Server Settings",
+["DCSARMA Tools", "Change Server Settings",
 	{
 		private _module_position = param [0, [0,0,0], [[]]];
 		private _selected_object = param [1, ObjNull, [ObjNull]];
