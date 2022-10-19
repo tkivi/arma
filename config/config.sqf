@@ -11,12 +11,14 @@ STNE_respawn_Loadouts = false;
 
 // Persistent database (INIDBI2)
 STNE_database_Enabled = true;			// Enable saving to database, true/false
+STNE_database_Name = "DCSARMA";			// Database name
 STNE_database_PlayerLoadout = true;		// Save player loadout, true/false
 STNE_database_PlayerLocation = true;	// Save player location, true/false
 STNE_database_PlayerTraits = true;		// Save player traits, true/false
-STNE_database_VehicleStatus = true;		// Save vehicle status (damage, fuel, ammo, etc..), true/false
+STNE_database_VehicleStatus = true;		// Save vehicle status (damage, fuel, pylons, etc..), true/false
 STNE_database_SaveAtDisconnect = true;  // Save player on disconnect, true/false
 STNE_database_SaveAtEnd = true;			// Save all data when mission ends, true/false
+STNE_database_TrackBuilding = true;		// Track building status on map, true/false
 
 // Sandbox mode
 STNE_sandbox_Arsenal = true;	// Create Arsenal boxes near respawn markers, true/false

@@ -24,6 +24,7 @@ private _Type = typeOf _Object;
 private _Location = getPosWorld _Object;
 private _VectorDir = vectorDir _Object;
 private _VectorUp = vectorUp _Object;
+private _CargoVehicleViV = (isVehicleCargo _Object) getVariable ["STNE_database_ID", ""];
 
 if !(_ID isEqualTo "") then {
 	// INIDBI2 save
@@ -32,6 +33,7 @@ if !(_ID isEqualTo "") then {
 		["write", [_ID, "Location", _Location]] call INIDBI_statics;
 		["write", [_ID, "VectorDir", _VectorDir]] call INIDBI_statics;
 		["write", [_ID, "VectorUp", _VectorUp]] call INIDBI_statics;
+		["write", [_ID, "CargoVehicleViV", _CargoVehicleViV]] call INIDBI_statics;
 		// ACE mod
 		if ("ACE" in STNE_server_Mods) then {
 			["write", [_ID, "ace_medical_ismedicalfacility", _Object getVariable ["ace_medical_ismedicalfacility", false]]] call INIDBI_statics;

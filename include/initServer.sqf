@@ -11,9 +11,11 @@ if ((missionNamespace getVariable ["STNE_server_ViewDistance", 0]) > 0) then {
 // Persistent database
 if (missionNamespace getVariable ["STNE_database_Enabled", false]) then {
 	if ("INIDBI2" in STNE_server_Mods) then {
-		INIDBI_players = ["new", (missionName + "_players." + worldName)] call OO_INIDBI; // Players
-		INIDBI_objects = ["new", (missionName + "_objects." + worldName)] call OO_INIDBI; // Objects with inventory
-		INIDBI_statics = ["new", (missionName + "_statics." + worldName)] call OO_INIDBI; // Simple static objects
+		private _DatabaseName = missionNamespace getVariable ["STNE_database_Name", ""];
+		INIDBI_players = ["new", (_DatabaseName + "_" + worldName + "_0_players")] call OO_INIDBI;		// 0 - Players
+		INIDBI_objects = ["new", (_DatabaseName + "_" + worldName + "_1_objects")] call OO_INIDBI;		// 1 - Objects with inventory
+		INIDBI_statics = ["new", (_DatabaseName + "_" + worldName + "_2_statics")] call OO_INIDBI;		// 2 - Simple static objects
+		INIDBI_buildings = ["new", (_DatabaseName + "_" + worldName + "_3_buildings")] call OO_INIDBI;	// 3 - Destroyed buildings on map
 		// Handle player disconnect
 		if (missionNamespace getVariable ["STNE_database_SaveAtDisconnect", false]) then {
 			addMissionEventHandler ["HandleDisconnect", {[(_this select 0), (_this select 2), (_this select 3)] call STNE_fnc_database_savePlayer;}];
@@ -22,6 +24,19 @@ if (missionNamespace getVariable ["STNE_database_Enabled", false]) then {
 		if (missionNamespace getVariable ["STNE_database_SaveAtEnd", false]) then {
 			addMissionEventHandler ["Ended", {[] call STNE_fnc_database_writeDatabase;}];
 			addMissionEventHandler ["MPEnded", {[] call STNE_fnc_database_writeDatabase;}];
+		};
+		// Track building status on map
+		if (missionNamespace getVariable ["STNE_database_TrackBuilding", false]) then {
+			addMissionEventHandler ["BuildingChanged", {
+				private _Building = (_this select 0) getVariable ["STNE_database_Building", ""];
+				if (_Building isEqualTo "") then {
+					(_this select 1) setVariable ["STNE_database_Building", (typeOf (_this select 0)), true];
+				} else {
+					(_this select 1) setVariable ["STNE_database_Building", _Building, true];
+				};
+				[_this select 0] call STNE_fnc_database_removeID;
+				[_this select 1] call STNE_fnc_database_generateID;
+			}];
 		};
 		// Read database
 		[] call STNE_fnc_database_readDatabase;

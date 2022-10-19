@@ -30,6 +30,7 @@ private _CargoWeapons = _Cargo select 0;
 private _CargoMagazines = _Cargo select 1;
 private _CargoItems = _Cargo select 2;
 private _CargoBags = _Cargo select 3;
+private _CargoVehicleViV = (isVehicleCargo _Object) getVariable ["STNE_database_ID", ""];
 
 if !(_ID isEqualTo "") then {
 	// INIDBI2 save
@@ -43,6 +44,7 @@ if !(_ID isEqualTo "") then {
 		["write", [_ID, "CargoMagazines", _CargoMagazines]] call INIDBI_objects;
 		["write", [_ID, "CargoItems", _CargoItems]] call INIDBI_objects;
 		["write", [_ID, "CargoBags", _CargoBags]] call INIDBI_objects;
+		["write", [_ID, "CargoVehicleViV", _CargoVehicleViV]] call INIDBI_objects;
 		if (missionNamespace getVariable ["STNE_database_VehicleStatus", false]) then {
 			// Damage, fuel
 			private _Damage = damage _Object;
@@ -70,6 +72,20 @@ if !(_ID isEqualTo "") then {
 		};
 		// ACE mod
 		if ("ACE" in STNE_server_Mods) then {
+			private _LoadedCargoACE = _Object getVariable ["ace_cargo_loaded", []];
+			{
+				private _CargoVehicleID = _x getVariable ["STNE_database_ID", ""];
+				if !(_CargoVehicleID isEqualTo "") then {
+					if ([_x] call STNE_fnc_database_getType == 1) then {
+						["write", [_CargoVehicleID, "CargoVehicleACE", _ID]] call INIDBI_objects;
+					} else {
+						["write", [_CargoVehicleID, "CargoVehicleACE", _ID]] call INIDBI_statics;
+					};
+				};
+			} forEach (_LoadedCargoACE select {_x isEqualType objNull}); //(_LoadedCargoACE select {_x isEqualType objNull} apply {_x getVariable ["STNE_database_ID", ""]});
+			if !(ace_repair_addSpareParts) then {
+				["write", [_ID, "ace_cargo_loaded", _LoadedCargoACE select {_x isEqualType ""}]] call INIDBI_objects;
+			};
 			["write", [_ID, "ace_medical_ismedicalvehicle", _Object getVariable ["ace_medical_ismedicalvehicle", false]]] call INIDBI_objects;
 			["write", [_ID, "ace_isrepairvehicle", _Object getVariable ["ace_isrepairvehicle", 0]]] call INIDBI_objects;
 		};

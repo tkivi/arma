@@ -33,6 +33,8 @@ private _Damage = 0;
 private _DamageHP = [];
 private _Pylons = [];
 private _Magazines = [];
+private _CargoVehicleViV = "";
+private _CargoVehicleACE = "";
 
 // INIDBI2 load
 if ("INIDBI2" in STNE_server_Mods) then {
@@ -45,6 +47,7 @@ if ("INIDBI2" in STNE_server_Mods) then {
 	_CargoMagazines = ["read", [_ID, "CargoMagazines", _CargoMagazines]] call INIDBI_objects;
 	_CargoItems = ["read", [_ID, "CargoItems", _CargoItems]] call INIDBI_objects;
 	_CargoBags = ["read", [_ID, "CargoBags", _CargoBags]] call INIDBI_objects;
+	_CargoVehicleViV = ["read", [_ID, "CargoVehicleViV", _CargoVehicleViV]] call INIDBI_objects;
 	if (missionNamespace getVariable ["STNE_database_VehicleStatus", false]) then {
 		_Fuel = ["read", [_ID, "Fuel", _Fuel]] call INIDBI_objects;
 		_Damage = ["read", [_ID, "Damage", _Damage]] call INIDBI_objects;
@@ -114,16 +117,37 @@ if !(_Type isEqualTo "") then {
 			_Object addMagazineTurret _x;
 		} forEach _Magazines;
 	};
-	// Location
-	_Object setVectorDirAndUp [_VectorDir, _VectorUp];
-	_Object setPosWorld _Location;
-	_Object setVariable ["STNE_database_ID", _ID, true];
-	STNE_database_AllObjects pushBack _Object;
 	// ACE mod
 	if ("ACE" in STNE_server_Mods && "INIDBI2" in STNE_server_Mods) then {
+		private _ACE_cargo = ["read", [_ID, "ace_cargo_loaded", []]] call INIDBI_objects;
 		private _ACE_medical = ["read", [_ID, "ace_medical_ismedicalvehicle", false]] call INIDBI_objects;
 		private _ACE_repair = ["read", [_ID, "ace_isrepairvehicle", 0]] call INIDBI_objects;
+		_CargoVehicleACE = ["read", [_ID, "CargoVehicleACE", _CargoVehicleACE]] call INIDBI_objects;
+		{
+			[_x, _Object, true] call ace_cargo_fnc_loadItem;
+		} forEach _ACE_cargo;
 		_Object setVariable ["ace_medical_ismedicalvehicle", _ACE_medical, true];
 		_Object setVariable ["ace_isrepairvehicle", _ACE_repair, true];
 	};
+	// Location
+	if (_CargoVehicleViV isEqualTo "") then {
+		if ("ACE" in STNE_server_Mods && !(_CargoVehicleACE isEqualTo "")) then {
+			{
+				if (_x getVariable ["STNE_database_ID", ""] isEqualTo _CargoVehicleACE) exitWith {
+					[_Object, _x, true] call ace_cargo_fnc_loadItem;
+				};
+			} forEach STNE_database_AllObjects;
+		} else {
+			_Object setVectorDirAndUp [_VectorDir, _VectorUp];
+			_Object setPosWorld _Location;
+		};
+	} else {
+		{
+			if (_x getVariable ["STNE_database_ID", ""] isEqualTo _CargoVehicleViV) exitWith {
+				_x setVehicleCargo _Object;
+			};
+		} forEach STNE_database_AllObjects;
+	};
+	_Object setVariable ["STNE_database_ID", _ID, true];
+	STNE_database_AllObjects pushBack _Object;
 };
