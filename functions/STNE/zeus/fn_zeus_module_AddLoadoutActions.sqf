@@ -9,6 +9,7 @@ if ((count (missionNamespace getVariable ["STNE_arsenal_Loadouts", [[],[]]] sele
 			} else {
 				["STNE_event_addLoadouts", _selected_object] call CBA_fnc_globalEventJIP;
 			};
-		}
+		},
+		STNE_icon_Action
 	] call zen_custom_modules_fnc_register;
 };

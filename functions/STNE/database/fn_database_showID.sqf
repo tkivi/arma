@@ -21,8 +21,8 @@ if (isNil "STNE_database_ZeusIcons") then {
 			private _Icon = [
 				(getAssignedCuratorLogic player),
 				[
-					"a3\modules_f\data\iconsavegame_ca.paa",
-					STNE_server_ColorRGBA,
+					STNE_icon_Save,
+					STNE_color_RGBA,
 					_x,
 					1,
 					1,
@@ -51,8 +51,8 @@ if (isNil "STNE_database_DrawIcons") then {
 	STNE_database_DrawIcons = addMissionEventHandler ["Draw3D",
 		{
 			drawIcon3D [
-				"a3\modules_f\data\iconsavegame_ca.paa",
-				STNE_server_ColorRGBA,
+				STNE_icon_Save,
+				STNE_color_RGBA,
 				ASLToAGL getPosASLVisual cursorTarget,
 				1,
 				1,

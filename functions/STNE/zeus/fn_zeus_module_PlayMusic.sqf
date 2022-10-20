@@ -32,6 +32,7 @@ if ((count ("true" configClasses (missionConfigFile >> "CfgMusic") apply {config
 				{},
 				[]
 			] call zen_dialog_fnc_create;
-		}
+		},
+		STNE_icon_Music
 	] call zen_custom_modules_fnc_register;
 };

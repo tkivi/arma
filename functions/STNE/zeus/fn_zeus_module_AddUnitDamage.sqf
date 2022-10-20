@@ -118,6 +118,7 @@ if ("ACE" in STNE_server_Mods) then {
 					[_selected_object]
 				] call zen_dialog_fnc_create;
 			};
-		}
+		},
+		STNE_icon_Unit
 	] call zen_custom_modules_fnc_register;
 };

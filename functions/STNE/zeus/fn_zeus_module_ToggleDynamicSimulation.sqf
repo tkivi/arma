@@ -8,5 +8,6 @@
         } else {
             [_selected_object] remoteExec ["STNE_fnc_server_toggleDynamicSimulation", 2];
         };
-    }
+    },
+    STNE_icon_Toggle
 ] call zen_custom_modules_fnc_register;

@@ -76,6 +76,7 @@
 		};
 		class zeus {
 			file = "functions\STNE\zeus";
+			class zeus_addActions {};
 			class zeus_addModules {};
 			class zeus_addPlayers {};
 			class zeus_addZeus {};

@@ -9,6 +9,7 @@ if ("ACE" in STNE_server_Mods) then {
 			} else {
 				["STNE_event_addSpectator", _selected_object] call CBA_fnc_globalEventJIP;
 			};
-		}
+		},
+		STNE_icon_Camera
 	] call zen_custom_modules_fnc_register;
 };

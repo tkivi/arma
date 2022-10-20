@@ -77,7 +77,8 @@ if (missionNamespace getVariable ["STNE_respawn_Loadouts", false]) then {
 	};
 };
 
-// Add ZEUS modules
+// Add ZEUS actions and modules
+[] call STNE_fnc_zeus_addActions;
 [] call STNE_fnc_zeus_addModules;
 
 // Assign player object as curator if defined

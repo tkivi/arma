@@ -34,6 +34,7 @@ if ((count ("true" configClasses (missionConfigFile >> "CfgSounds") apply {confi
 					[_module_position, _selected_object]
 				] call zen_dialog_fnc_create;
 			};
-		}
+		},
+		STNE_icon_Sound
 	] call zen_custom_modules_fnc_register;
 };

@@ -31,6 +31,7 @@ if (count (missionNamespace getVariable ["STNE_server_CustomGroups", []]) > 0) t
 				{},
 				[]
 			] call zen_dialog_fnc_create;
-		}
+		},
+		STNE_icon_Group
 	] call zen_custom_modules_fnc_register;
 };

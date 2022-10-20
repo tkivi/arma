@@ -107,5 +107,6 @@
 			{},
 			[]
 		] call zen_dialog_fnc_create;
-	}
+	},
+	STNE_icon_List
 ] call zen_custom_modules_fnc_register;

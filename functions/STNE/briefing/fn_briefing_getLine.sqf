@@ -16,7 +16,7 @@
 params ["_UnColored", "_Colored"];
 
 private _Brk = "<br />";
-private _Bgn = "<font color='" + STNE_server_ColorHEX + "'>";
+private _Bgn = "<font color='" + STNE_color_HEX + "'>";
 private _End = "</font>";
 
 private _Return = _Brk + format ["%1", _UnColored] + _Bgn + format ["%1", _Colored] + _End;

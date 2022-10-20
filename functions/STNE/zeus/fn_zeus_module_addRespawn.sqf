@@ -29,5 +29,6 @@
 			{},
 			[_module_position, _selected_object]
 		] call zen_dialog_fnc_create;
-	}
+	},
+	STNE_icon_Respawn
 ] call zen_custom_modules_fnc_register;

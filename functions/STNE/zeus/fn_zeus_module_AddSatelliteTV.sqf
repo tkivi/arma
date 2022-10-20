@@ -9,6 +9,7 @@ if ("ACE" in STNE_server_Mods && "MRHSATELLITE" in STNE_server_Mods) then {
 			} else {
 				["STNE_event_addSatelliteTV", _selected_object] call CBA_fnc_globalEventJIP;
 			};
-		}
+		},
+		STNE_icon_Satellite
 	] call zen_custom_modules_fnc_register;
 };

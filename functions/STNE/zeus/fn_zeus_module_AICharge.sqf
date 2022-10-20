@@ -37,5 +37,6 @@
 				//} forEach units (group _selected_object);
 			};
 		};
-	}
+	},
+	STNE_icon_Run
 ] call zen_custom_modules_fnc_register;

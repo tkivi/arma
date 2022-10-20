@@ -61,5 +61,6 @@
 			] call zen_dialog_fnc_create;
 		};
 		[] call STNE_spawner_dialog;
-	}
+	},
+	STNE_icon_Group
 ] call zen_custom_modules_fnc_register;

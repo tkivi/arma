@@ -9,6 +9,7 @@ if ("SOG" in STNE_server_Mods) then {
 			} else {
 				[_selected_object] call STNE_fnc_arsenal_addSOG;
 			};
-		}
+		},
+		STNE_icon_Arsenal
 	] call zen_custom_modules_fnc_register;
 };

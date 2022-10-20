@@ -9,5 +9,6 @@
 		} else {
 			[[_selected_object]] call STNE_fnc_save_getSQF;
 		};
-	}
+	},
+	STNE_icon_Code
 ] call zen_custom_modules_fnc_register;

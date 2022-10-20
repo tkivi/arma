@@ -9,6 +9,7 @@ if ((count (missionNamespace getVariable ["STNE_arsenal_Loadouts", [[],[]]] sele
 			} else {
 				[_selected_object] remoteExec ["STNE_fnc_arsenal_addLoadouts", _selected_object];
 			};
-		}
+		},
+		STNE_icon_Arsenal
 	] call zen_custom_modules_fnc_register;
 };

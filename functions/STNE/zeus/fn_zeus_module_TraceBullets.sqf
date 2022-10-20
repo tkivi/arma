@@ -15,5 +15,6 @@
 			missionNamespace setVariable ["BIS_tracedShooter", nil, true];
 			_selected_object remoteExec ["BIS_fnc_traceBullets", 0];
 		};
-	}
+	},
+	STNE_icon_Tracers
 ] call zen_custom_modules_fnc_register;

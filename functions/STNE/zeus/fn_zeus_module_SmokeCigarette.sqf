@@ -16,6 +16,7 @@ if ("IMMERSIONCIGS" in STNE_server_Mods) then {
 					[(_this select 0)] remoteExec ["murshun_cigs_fnc_start_cig", (_this select 0)];
 				};
 			};
-		}
+		},
+		STNE_icon_Cig
 	] call zen_custom_modules_fnc_register;
 };

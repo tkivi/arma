@@ -9,7 +9,8 @@ if (missionNamespace getVariable ["STNE_database_Enabled", false]) then {
 				} else {
 					["Hide database ID"] call zen_common_fnc_showMessage;
 				};
-			}
+			},
+			STNE_icon_Toggle
 		] call zen_custom_modules_fnc_register;
 	};
 };

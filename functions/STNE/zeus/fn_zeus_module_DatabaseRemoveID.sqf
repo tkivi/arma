@@ -13,7 +13,8 @@ if (missionNamespace getVariable ["STNE_database_Enabled", false]) then {
 						[format ["Removed ID: %1", _ID]] call zen_common_fnc_showMessage;
 					};
 				};
-			}
+			},
+			STNE_icon_Remove
 		] call zen_custom_modules_fnc_register;
 	};
 };
