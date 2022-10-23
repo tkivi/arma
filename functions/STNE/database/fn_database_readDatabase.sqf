@@ -12,8 +12,7 @@
  *
  */
 
-// Array containing all saved objects
-STNE_database_AllObjects = [];
+STNE_database_AllObjects = missionNamespace getVariable ["STNE_database_AllObjects", []];
 
 private _BuildingIDs = [];
 private _StaticIDs = [];
@@ -23,6 +22,19 @@ private _ObjectIDsDelayed = [];
 
 // INIDBI2 read
 if ("INIDBI2" in STNE_server_Mods) then {
+	// Markers
+	if ("exists" call INIDBI_map) then {
+		[] call STNE_fnc_database_loadMarkers;
+	};
+	// Mines
+	if (missionNamespace getVariable ["STNE_database_Mines", false]) then {
+		// Read editor placed mines, need sleep to detect mines added by editor module
+		sleep 1;
+		STNE_editor_Mines = allMines;
+		if ("exists" call INIDBI_map) then {
+			[] call STNE_fnc_database_loadMines;
+		};
+	};
 	// Buildings
 	if ("exists" call INIDBI_buildings) then {
 		private _BuildingIDs = "getSections" call INIDBI_buildings;

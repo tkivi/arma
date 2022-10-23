@@ -1,6 +1,6 @@
 # ARMA Mission Framework for DCS Finland community
 
-Version: 221020
+Version: 221023
 
 Edit [**config\config.hpp**](config/config.hpp) and [**config\config.sqf**](config/config.sqf) for your mission needs.
 
@@ -21,3 +21,13 @@ Usable functions that you can add to object init line:
   >*[this] call STNE_fnc_arsenal_addMedical;*
 - **Add ACE arsenal to object with SOG gear only**
   >*[this] call STNE_fnc_arsenal_addSOG;*
+- **Add ACE arsenal to object with Western Sahara gear only**
+  >*[this] call STNE_fnc_arsenal_addWS;*
+- **Add object/static from editor to database save**
+  >*if (isServer) then {[this] call STNE_fnc_database_generateID;};*
+
+Database:
+- **Init line: Add object/static from editor to database save**
+  >*if (isServer) then {[this] call STNE_fnc_database_generateID;};*
+- **Trigger: Save all data to database**
+  >*if (isServer) then {[] call STNE_fnc_database_writeDatabase;};*

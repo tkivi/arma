@@ -50,9 +50,15 @@ if !(_ID isEqualTo "") then {
 			private _Damage = damage _Object;
 			private _DamageHP = getAllHitPointsDamage _Object;
 			private _Fuel = fuel _Object;
+			private _FuelCargo = getFuelCargo _Object;
+			private _AmmoCargo = getAmmoCargo _Object;
+			private _RepairCargo = getRepairCargo _Object;
 			["write", [_ID, "Damage", _Damage]] call INIDBI_objects;
 			["write", [_ID, "DamageHP", _DamageHP]] call INIDBI_objects;
 			["write", [_ID, "Fuel", _Fuel]] call INIDBI_objects;
+			["write", [_ID, "FuelCargo", _FuelCargo]] call INIDBI_objects;
+			["write", [_ID, "AmmoCargo", _AmmoCargo]] call INIDBI_objects;
+			["write", [_ID, "RepairCargo", _RepairCargo]] call INIDBI_objects;
 			// Pylons
 			private _Pylons = [];
 			private _PylonMagazines = getPylonMagazines _Object;
@@ -88,6 +94,9 @@ if !(_ID isEqualTo "") then {
 			};
 			["write", [_ID, "ace_medical_ismedicalvehicle", _Object getVariable ["ace_medical_ismedicalvehicle", false]]] call INIDBI_objects;
 			["write", [_ID, "ace_isrepairvehicle", _Object getVariable ["ace_isrepairvehicle", 0]]] call INIDBI_objects;
+			if (missionNamespace getVariable ["STNE_database_VehicleStatus", false]) then {
+				["write", [_ID, "ace_refuel_fnc_setFuel", _Object call ace_refuel_fnc_getFuel]] call INIDBI_objects;
+			};
 		};
 	};
 };

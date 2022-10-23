@@ -34,20 +34,30 @@ if ("INIDBI2" in STNE_server_Mods) then {
 			};
 		};			
 	} forEach STNE_database_AllObjects;
+	// Mines
+	if (missionNamespace getVariable ["STNE_database_Mines", false]) then {
+		[] call STNE_fnc_database_saveMines;
+	};
+	// Markers
+	if (missionNamespace getVariable ["STNE_database_Markers", false]) then {
+		[] call STNE_fnc_database_saveMarkers;
+	};
 	// Send status if remote executed
 	if (_SendStatus) then {
 		if (isRemoteExecuted) then {
 			if !(remoteExecutedOwner isEqualTo 0) then {
-				private _Name = format ["Database: %1", missionNamespace getVariable ["STNE_database_Name", ""]];
-				private _Players = format ["Players: %1", count ("getSections" call INIDBI_players)];
-				private _Objects = format ["Objects: %1", count ("getSections" call INIDBI_objects)];
-				private _Statics = format ["Statics: %1", count ("getSections" call INIDBI_statics)];
-				private _Buildings = format ["Buildings: %1", count ("getSections" call INIDBI_buildings)];
-				[_Name] remoteExec ["systemChat", remoteExecutedOwner];
-				[_Players] remoteExec ["systemChat", remoteExecutedOwner];
-				[_Objects] remoteExec ["systemChat", remoteExecutedOwner];
-				[_Statics] remoteExec ["systemChat", remoteExecutedOwner];
-				[_Buildings] remoteExec ["systemChat", remoteExecutedOwner];
+				private _Header = format ["Database: %1", missionNamespace getVariable ["STNE_database_Name", ""]];
+				private _Message = format [
+					"Players: %1 | Objects: %2 | Statics: %3 | Buildings: %4 | Markers: %5 | Mines: %6",
+					count ("getSections" call INIDBI_players),
+					count ("getSections" call INIDBI_objects),
+					count ("getSections" call INIDBI_statics),
+					count ("getSections" call INIDBI_buildings),
+					(count (["read", ["Markers", "Markers", []]] call INIDBI_map)) + (count (["read", ["Markers", "Polylines", []]] call INIDBI_map)),
+					count (["read", ["Mines", "Mines", []]] call INIDBI_map)
+				];
+				[_Header] remoteExec ["systemChat", remoteExecutedOwner];
+				[_Message] remoteExec ["systemChat", remoteExecutedOwner];
 			};
 		};
 	};

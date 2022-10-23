@@ -19,6 +19,8 @@ STNE_database_VehicleStatus = true;		// Save vehicle status (damage, fuel, pylon
 STNE_database_SaveAtDisconnect = true;  // Save player on disconnect, true/false
 STNE_database_SaveAtEnd = true;			// Save all data when mission ends, true/false
 STNE_database_TrackBuilding = true;		// Track building status on map, true/false
+STNE_database_Mines = true;				// Save all placed mines, true/false
+STNE_database_Markers = true;			// Save all player created map markers (global), true/false
 
 // Sandbox mode
 STNE_sandbox_Arsenal = true;	// Create Arsenal boxes near respawn markers, true/false

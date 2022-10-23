@@ -34,12 +34,16 @@
 			class database_getType {};
 			class database_hasInventory {};
 			class database_loadBuilding {};
+			class database_loadMarkers {};
+			class database_loadMines {};
 			class database_loadObject {};
 			class database_loadPlayer {};
 			class database_loadStatic {};
 			class database_readDatabase {};
 			class database_removeID {};
 			class database_saveBuilding {};
+			class database_saveMarkers {};
+			class database_saveMines {};
 			class database_saveObject {};
 			class database_savePlayer {};
 			class database_saveStatic {};

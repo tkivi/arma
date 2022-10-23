@@ -48,5 +48,5 @@ if !(_Type isEqualTo "") then {
 	if !(_Building isEqualTo "") then {
 		_Object setVariable ["STNE_database_Building", _Building, true];
 	};
-	STNE_database_AllObjects pushBack _Object;
+	STNE_database_AllObjects pushBackUnique _Object;
 };

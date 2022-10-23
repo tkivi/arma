@@ -12,10 +12,11 @@ if ((missionNamespace getVariable ["STNE_server_ViewDistance", 0]) > 0) then {
 if (missionNamespace getVariable ["STNE_database_Enabled", false]) then {
 	if ("INIDBI2" in STNE_server_Mods) then {
 		private _DatabaseName = missionNamespace getVariable ["STNE_database_Name", ""];
-		INIDBI_players = ["new", (_DatabaseName + "_" + worldName + "_0_players")] call OO_INIDBI;		// 0 - Players
-		INIDBI_objects = ["new", (_DatabaseName + "_" + worldName + "_1_objects")] call OO_INIDBI;		// 1 - Objects with inventory
-		INIDBI_statics = ["new", (_DatabaseName + "_" + worldName + "_2_statics")] call OO_INIDBI;		// 2 - Simple static objects
-		INIDBI_buildings = ["new", (_DatabaseName + "_" + worldName + "_3_buildings")] call OO_INIDBI;	// 3 - Destroyed buildings on map
+		INIDBI_players = ["new", (_DatabaseName + "_" + worldName + "_players")] call OO_INIDBI;		// 0 - Players
+		INIDBI_objects = ["new", (_DatabaseName + "_" + worldName + "_objects")] call OO_INIDBI;		// 1 - Objects with inventory
+		INIDBI_statics = ["new", (_DatabaseName + "_" + worldName + "_statics")] call OO_INIDBI;		// 2 - Simple static objects
+		INIDBI_buildings = ["new", (_DatabaseName + "_" + worldName + "_buildings")] call OO_INIDBI;	// 3 - Destroyed buildings on map
+		INIDBI_map = ["new", (_DatabaseName + "_" + worldName + "_map")] call OO_INIDBI;				// 4 - Map markers, mines, etc..
 		// Handle player disconnect
 		if (missionNamespace getVariable ["STNE_database_SaveAtDisconnect", false]) then {
 			addMissionEventHandler ["HandleDisconnect", {[(_this select 0), (_this select 2), (_this select 3)] call STNE_fnc_database_savePlayer;}];

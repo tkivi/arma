@@ -29,6 +29,9 @@ private _CargoMagazines = [[],[]];
 private _CargoItems = [[],[]];
 private _CargoBags = [[],[]];
 private _Fuel = 1;
+private _FuelCargo = -1;
+private _AmmoCargo = -1;
+private _RepairCargo = -1;
 private _Damage = 0;
 private _DamageHP = [];
 private _Pylons = [];
@@ -50,6 +53,9 @@ if ("INIDBI2" in STNE_server_Mods) then {
 	_CargoVehicleViV = ["read", [_ID, "CargoVehicleViV", _CargoVehicleViV]] call INIDBI_objects;
 	if (missionNamespace getVariable ["STNE_database_VehicleStatus", false]) then {
 		_Fuel = ["read", [_ID, "Fuel", _Fuel]] call INIDBI_objects;
+		_FuelCargo = ["read", [_ID, "FuelCargo", _FuelCargo]] call INIDBI_objects;
+		_AmmoCargo = ["read", [_ID, "AmmoCargo", _AmmoCargo]] call INIDBI_objects;
+		_RepairCargo = ["read", [_ID, "RepairCargo", _RepairCargo]] call INIDBI_objects;
 		_Damage = ["read", [_ID, "Damage", _Damage]] call INIDBI_objects;
 		_DamageHP = ["read", [_ID, "DamageHP", _DamageHP]] call INIDBI_objects;
 		_Pylons = ["read", [_ID, "Pylons", _Pylons]] call INIDBI_objects;
@@ -59,7 +65,10 @@ if ("INIDBI2" in STNE_server_Mods) then {
 
 // Create object
 if !(_Type isEqualTo "") then {
-	private _Object = _Type createVehicle [0,0,0];
+	private _Object = missionNamespace getVariable [_ID, objNull]; // Check if object already exists
+	if (_Object isEqualTo objNull) then {
+		_Object = _Type createVehicle [0,0,0];
+	};
 	if !(_Type isEqualTo "GroundWeaponHolder") then {
 		// Customization
 		if !(_Customization isEqualTo [[],[]]) then {
@@ -88,6 +97,9 @@ if !(_Type isEqualTo "") then {
 	if (missionNamespace getVariable ["STNE_database_VehicleStatus", false]) then {
 		// Damage, fuel
 		if !(_Fuel isEqualTo 1) then {_Object setFuel _Fuel;};
+		if !(_FuelCargo isEqualTo -1) then {_Object setFuelCargo _FuelCargo;};
+		if !(_AmmoCargo isEqualTo -1) then {_Object setAmmoCargo _AmmoCargo;};
+		if !(_RepairCargo isEqualTo -1) then {_Object setRepairCargo _RepairCargo;};
 		if !(_Damage isEqualTo 0) then {_Object setDamage _Damage;};
 		if !(_DamageHP isEqualTo []) then {
 			for "_i" from 0 to (count (_DamageHP select 2) - 1) do {
@@ -128,6 +140,10 @@ if !(_Type isEqualTo "") then {
 		} forEach _ACE_cargo;
 		_Object setVariable ["ace_medical_ismedicalvehicle", _ACE_medical, true];
 		_Object setVariable ["ace_isrepairvehicle", _ACE_repair, true];
+		if (missionNamespace getVariable ["STNE_database_VehicleStatus", false]) then {
+			private _ACE_fuelcargo = ["read", [_ID, "ace_refuel_fnc_setFuel", 0]] call INIDBI_objects;
+			[_Object, _ACE_fuelcargo] call ace_refuel_fnc_setFuel;
+		};
 	};
 	// Location
 	if (_CargoVehicleViV isEqualTo "") then {
@@ -149,5 +165,5 @@ if !(_Type isEqualTo "") then {
 		} forEach STNE_database_AllObjects;
 	};
 	_Object setVariable ["STNE_database_ID", _ID, true];
-	STNE_database_AllObjects pushBack _Object;
+	STNE_database_AllObjects pushBackUnique _Object;
 };

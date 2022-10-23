@@ -37,7 +37,10 @@ if ("INIDBI2" in STNE_server_Mods) then {
 
 // Create object
 if !(_Type isEqualTo "") then {
-	private _Object = _Type createVehicle [0,0,0];
+	private _Object = missionNamespace getVariable [_ID, objNull]; // Check if object already exists
+	if (_Object isEqualTo objNull) then {
+		_Object = _Type createVehicle [0,0,0];
+	};
 	// ACE mod
 	if ("ACE" in STNE_server_Mods && "INIDBI2" in STNE_server_Mods) then {
 		private _ACE_medical = ["read", [_ID, "ace_medical_ismedicalfacility", false]] call INIDBI_statics;
@@ -66,5 +69,5 @@ if !(_Type isEqualTo "") then {
 		} forEach STNE_database_AllObjects;
 	};
 	_Object setVariable ["STNE_database_ID", _ID, true];
-	STNE_database_AllObjects pushBack _Object;
+	STNE_database_AllObjects pushBackUnique _Object;
 };
