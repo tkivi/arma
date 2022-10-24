@@ -12,6 +12,7 @@ STNE_respawn_Loadouts = false;
 // Persistent database (INIDBI2)
 STNE_database_Enabled = true;			// Enable saving to database, true/false
 STNE_database_Name = "DCSARMA";			// Database name
+STNE_database_PlayerVarName = true;		// Try to use vehicleVarName instead UID when saving player, true/false
 STNE_database_PlayerLoadout = true;		// Save player loadout, true/false
 STNE_database_PlayerLocation = true;	// Save player location, true/false
 STNE_database_PlayerTraits = true;		// Save player traits, true/false

@@ -13,7 +13,7 @@
  */
 
 if ("INIDBI2" in STNE_server_Mods) then {
-	private _Mines = ["read", ["Mines", "Mines", []]] call INIDBI_map;
+	private _Mines = ["read", ["Mines", "Mines", []]] call INIDBI_mines;
 	{
 		private _Mine = createVehicle [(_x select 0), (_x select 1), [], 0, "CAN_COLLIDE"];
 		[_Mine, (_x select 2)] remoteExec ["setDir", 0, true];

@@ -59,7 +59,7 @@ player createDiaryRecord
 			["Persistent Save: ", missionNamespace getVariable ["STNE_database_Enabled", false] && "INIDBI2" in STNE_server_Mods] call STNE_fnc_briefing_getLine,
 			["Database Name: ", missionNamespace getVariable ["STNE_database_Name", ""]] call STNE_fnc_briefing_getLine,
 			["", ""] call STNE_fnc_briefing_getLine,
-			["Version: ", "221023"] call STNE_fnc_briefing_getLine,
+			["Version: ", "221024"] call STNE_fnc_briefing_getLine,
 			["", ""] call STNE_fnc_briefing_getLine,
 			["Mission Framework by Stone.", ""] call STNE_fnc_briefing_getLine
 		]

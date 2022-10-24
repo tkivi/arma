@@ -13,7 +13,7 @@
  */
 
 /*if ("INIDBI2" in STNE_server_Mods) then {
-	private _Markers = ["read", ["Markers", "Markers", []]] call INIDBI_map;
+	private _Markers = ["read", ["Markers", "Markers", []]] call INIDBI_markers;
 	private _StartIndex = count (allMapMarkers select {"_USER_DEFINED" in _x});
 	{
 		private _MarkerName = format ["_USER_DEFINED #0/%1/%2", (_StartIndex + _foreachindex), (_x select 0)];
@@ -29,8 +29,8 @@
 };*/
 
 if ("INIDBI2" in STNE_server_Mods) then {
-	private _Markers = ["read", ["Markers", "Markers", []]] call INIDBI_map;
-	private _Polylines = ["read", ["Markers", "Polylines", []]] call INIDBI_map;
+	private _Markers = ["read", ["Markers", "Markers", []]] call INIDBI_markers;
+	private _Polylines = ["read", ["Markers", "Polylines", []]] call INIDBI_markers;
 	{
 		_x call BIS_fnc_stringToMarker;
 	} forEach _Markers;

@@ -36,6 +36,11 @@ if !(_DisconnectUID isEqualTo "") then {
 	_PlayerUID = _DisconnectUID;
 };
 
+// vehicleVarName
+if ((missionNamespace getVariable ["STNE_database_PlayerVarName", false]) && !((vehicleVarName _Player) isEqualTo "")) then {
+	_PlayerUID = vehicleVarName _Player;
+};
+
 // INIDBI2 save
 if ("INIDBI2" in STNE_server_Mods) then {
 	["write", [_PlayerUID, "name", _PlayerName]] call INIDBI_players;

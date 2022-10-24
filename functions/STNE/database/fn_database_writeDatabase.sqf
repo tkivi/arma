@@ -30,6 +30,7 @@ if ("INIDBI2" in STNE_server_Mods) then {
 				case 1: {[_x] call STNE_fnc_database_saveObject;};
 				case 2: {[_x] call STNE_fnc_database_saveStatic;};
 				case 3: {[_x] call STNE_fnc_database_saveBuilding;};
+				case 4: {[_x] call STNE_fnc_database_saveWreck;};
 				default {[_x] call STNE_fnc_database_saveStatic;};
 			};
 		};			
@@ -46,18 +47,23 @@ if ("INIDBI2" in STNE_server_Mods) then {
 	if (_SendStatus) then {
 		if (isRemoteExecuted) then {
 			if !(remoteExecutedOwner isEqualTo 0) then {
-				private _Header = format ["Database: %1", missionNamespace getVariable ["STNE_database_Name", ""]];
-				private _Message = format [
-					"Players: %1 | Objects: %2 | Statics: %3 | Buildings: %4 | Markers: %5 | Mines: %6",
+				private _Line1 = format ["Database: %1", missionNamespace getVariable ["STNE_database_Name", ""]];
+				private _Line2 = format [
+					"Players: %1 | Objects: %2 | Statics: %3 | Buildings: %4 | Wrecks: %5",
 					count ("getSections" call INIDBI_players),
 					count ("getSections" call INIDBI_objects),
 					count ("getSections" call INIDBI_statics),
 					count ("getSections" call INIDBI_buildings),
-					(count (["read", ["Markers", "Markers", []]] call INIDBI_map)) + (count (["read", ["Markers", "Polylines", []]] call INIDBI_map)),
-					count (["read", ["Mines", "Mines", []]] call INIDBI_map)
+					count ("getSections" call INIDBI_wrecks)
 				];
-				[_Header] remoteExec ["systemChat", remoteExecutedOwner];
-				[_Message] remoteExec ["systemChat", remoteExecutedOwner];
+				private _Line3 = format [
+					"Markers: %1 | Mines: %2",
+					(count (["read", ["Markers", "Markers", []]] call INIDBI_markers)) + (count (["read", ["Markers", "Polylines", []]] call INIDBI_markers)),
+					count (["read", ["Mines", "Mines", []]] call INIDBI_mines)
+				];
+				[_Line1] remoteExec ["systemChat", remoteExecutedOwner];
+				[_Line2] remoteExec ["systemChat", remoteExecutedOwner];
+				[_Line3] remoteExec ["systemChat", remoteExecutedOwner];
 			};
 		};
 	};

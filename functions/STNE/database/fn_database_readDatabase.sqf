@@ -23,7 +23,7 @@ private _ObjectIDsDelayed = [];
 // INIDBI2 read
 if ("INIDBI2" in STNE_server_Mods) then {
 	// Markers
-	if ("exists" call INIDBI_map) then {
+	if ("exists" call INIDBI_markers) then {
 		[] call STNE_fnc_database_loadMarkers;
 	};
 	// Mines
@@ -31,7 +31,7 @@ if ("INIDBI2" in STNE_server_Mods) then {
 		// Read editor placed mines, need sleep to detect mines added by editor module
 		sleep 1;
 		STNE_editor_Mines = allMines;
-		if ("exists" call INIDBI_map) then {
+		if ("exists" call INIDBI_mines) then {
 			[] call STNE_fnc_database_loadMines;
 		};
 	};
@@ -52,6 +52,13 @@ if ("INIDBI2" in STNE_server_Mods) then {
 				[_x] call STNE_fnc_database_loadStatic;
 			};
 		} forEach _StaticIDs;
+	};
+	// Wrecks
+	if ("exists" call INIDBI_wrecks) then {
+		private _WreckIDs = "getSections" call INIDBI_wrecks;
+		{
+			[_x] call STNE_fnc_database_loadWreck;
+		} forEach _WreckIDs;
 	};
 	// Objects
 	if ("exists" call INIDBI_objects) then {

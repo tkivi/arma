@@ -21,6 +21,11 @@ if (_Player isEqualTo ObjNull) exitWith {};
 // Get player UID
 private _PlayerUID = getPlayerUID _Player;
 
+// vehicleVarName
+if ((missionNamespace getVariable ["STNE_database_PlayerVarName", false]) && !((vehicleVarName _Player) isEqualTo "")) then {
+	_PlayerUID = vehicleVarName _Player;
+};
+
 // INIDBI2 load
 if ("INIDBI2" in STNE_server_Mods) then {
 	if ("exists" call INIDBI_players) then {

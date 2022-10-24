@@ -39,6 +39,7 @@
 			class database_loadObject {};
 			class database_loadPlayer {};
 			class database_loadStatic {};
+			class database_loadWreck {};
 			class database_readDatabase {};
 			class database_removeID {};
 			class database_saveBuilding {};
@@ -47,6 +48,7 @@
 			class database_saveObject {};
 			class database_savePlayer {};
 			class database_saveStatic {};
+			class database_saveWreck {};
 			class database_showID {};
 			class database_writeDatabase {};
 		};

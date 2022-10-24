@@ -18,5 +18,5 @@ private _Mines = [];
 } forEach (allMines - (missionNamespace getVariable ["STNE_editor_Mines", []]));
 
 if ("INIDBI2" in STNE_server_Mods) then {
-	["write", ["Mines", "Mines", _Mines]] call INIDBI_map;
+	["write", ["Mines", "Mines", _Mines]] call INIDBI_mines;
 };

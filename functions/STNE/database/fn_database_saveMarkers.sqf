@@ -44,6 +44,6 @@ private _Polylines = [];
 } forEach (allMapMarkers select {"_USER_DEFINED" in _x});
 
 if ("INIDBI2" in STNE_server_Mods) then {
-	["write", ["Markers", "Markers", _Markers]] call INIDBI_map;
-	["write", ["Markers", "Polylines", _Polylines]] call INIDBI_map;
+	["write", ["Markers", "Markers", _Markers]] call INIDBI_markers;
+	["write", ["Markers", "Polylines", _Polylines]] call INIDBI_markers;
 };

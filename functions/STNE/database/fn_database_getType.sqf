@@ -33,7 +33,11 @@ if (_x isKindOf "Ruins") then {
 
 // Object with inventory
 if ([_Object] call STNE_fnc_database_hasInventory) then {
-	_Type = 1;
+	if ((damage _Object) isEqualTo 1) then {
+		_Type = 4;
+	} else {
+		_Type = 1;
+	};
 };
 
 _Type;
