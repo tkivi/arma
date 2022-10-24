@@ -23,8 +23,6 @@ Usable functions that you can add to object init line:
   >*[this] call STNE_fnc_arsenal_addSOG;*
 - **Add ACE arsenal to object with Western Sahara gear only**
   >*[this] call STNE_fnc_arsenal_addWS;*
-- **Add object/static from editor to database save**
-  >*if (isServer) then {[this] call STNE_fnc_database_generateID;};*
 
 Database:
 - **Init line: Add object/static from editor to database save**
