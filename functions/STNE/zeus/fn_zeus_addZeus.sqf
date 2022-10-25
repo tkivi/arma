@@ -2,27 +2,32 @@
  * Add Zeus to player if defined in config.
  *
  * Arguments:
- * None
+ * Player <OBJECT>
  *
  * Return Value:
  * None
  *
  * Example:
- * [] spawn STNE_fnc_zeus_addZeus;
+ * [object] spawn STNE_fnc_zeus_addZeus;
  *
  */
 
-if (isNull (getAssignedCuratorLogic player)) then {
+private _Player = param [0, ObjNull, [ObjNull]];
+
+// Initial delay
+sleep 5;
+
+if (isNull (getAssignedCuratorLogic _Player)) then {
 	// Add Zeus if defined
-	private _PlayerUID = getPlayerUID player;
+	private _PlayerUID = getPlayerUID _Player;
 	private _Sandbox = missionNamespace getVariable ["STNE_sandbox_Zeus", false];
 	private _SqfUID = missionNamespace getVariable ["STNE_zeus_PlayerUID", []];
 	private _ExtUID = getMissionConfigValue ["enableDebugConsole", []];
 
 	if (_Sandbox || (_PlayerUID in _SqfUID) || (_PlayerUID in _ExtUID)) then {
 		if ("ZEN" in STNE_server_Mods) then {
-			while {sleep 5; (isNull (getAssignedCuratorLogic player))} do {
-				[player] remoteExec ["zen_common_fnc_createZeus", 2];
+			while {sleep 3; (isNull (getAssignedCuratorLogic _Player))} do {
+				_Player call zen_common_fnc_createZeus;
 			};
 		};
 	};
@@ -32,5 +37,5 @@ if (isNull (getAssignedCuratorLogic player)) then {
 if ("BLINDZEUS" in STNE_server_Mods) then {
 	// BlindZeus mod enabled, skip
 } else {
-	[] remoteExec ["STNE_fnc_zeus_addPlayers", 2];
+	[] call STNE_fnc_zeus_addPlayers;
 };

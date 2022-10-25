@@ -25,24 +25,8 @@ waitUntil {!isNull player};
 // Wait until server init is done
 waitUntil {sleep 1; !(isNil "STNE_server_Init")};
 
-// Save loadout on respawn
-if (missionNamespace getVariable ["STNE_respawn_Loadouts", false]) then {
-	// Set/Save initial player loadout and traits
-	private _stne_old_loadout = missionNamespace getVariable ["STNE_loadout_" + (getPlayerUID player), []];
-	private _stne_old_traits = missionNamespace getVariable ["STNE_traits_" + (getPlayerUID player), []];
-	if (count _stne_old_loadout > 0) then {
-		player setUnitLoadout [_stne_old_loadout, true];
-	} else {
-		missionNamespace setVariable ["STNE_loadout_" + (getPlayerUID player), getUnitLoadout [player, true], true];
-	};
-	if (count _stne_old_traits > 0) then {
-		{
-			player setUnitTrait [(_x select 0), (_x select 1)];
-		} forEach _stne_old_traits;
-	} else {
-		missionNamespace setVariable ["STNE_traits_" + (getPlayerUID player), getAllUnitTraits player, true];
-	};
-
+// Keep selected loadout on respawn
+if (missionNamespace getVariable ["STNE_loadout_Respawn", false]) then {
 	if ("CBA" in STNE_server_Mods && "ACE" in STNE_server_Mods) then {
 		// Save player loadout when closing ACE arsenal
 		[
@@ -51,16 +35,15 @@ if (missionNamespace getVariable ["STNE_respawn_Loadouts", false]) then {
 				missionNamespace setVariable ["STNE_traits_" + (getPlayerUID player), getAllUnitTraits player, true];
 			}
 		] call CBA_fnc_addEventHandler;
-
-		if ((count (missionNamespace getVariable ["STNE_arsenal_Loadouts", [[],[]]] select 0)) > 0) then {
-			// Load loadout from ACE arsenal
+		// Load loadout from ACE arsenal
+		if ((count (missionNamespace getVariable ["STNE_loadout_Arsenal", [[],[]]] select 0)) > 0) then {
 			[
 				"ace_arsenal_onLoadoutLoad", {
-					params ["_stne_LoadoutArray", "_stne_LoadoutName"];
+					params ["_LoadoutArray", "_LoadoutName"];
 					{
-						if ((_x select 0) == _stne_LoadoutName) exitwith {
+						if ((_x select 0) == _LoadoutName) exitwith {
 							for "_i" from 1 to 10 do {systemChat " ";};
-							systemChat format ["Loadout: %1", _stne_LoadoutName];
+							systemChat format ["Loadout: %1", _LoadoutName];
 							{
 								if (typeName (_x select 1) == "BOOL") then {
 									if (_x select 1) then {
@@ -70,7 +53,7 @@ if (missionNamespace getVariable ["STNE_respawn_Loadouts", false]) then {
 								player setUnitTrait [(_x select 0), (_x select 1)];
 							} forEach (_x select 2);
 						};
-					} forEach (STNE_arsenal_Loadouts select 0);
+					} forEach (STNE_loadout_Arsenal select 0);
 				}
 			] call CBA_fnc_addEventHandler;
 		};
@@ -81,5 +64,16 @@ if (missionNamespace getVariable ["STNE_respawn_Loadouts", false]) then {
 [] call STNE_fnc_zeus_addActions;
 [] call STNE_fnc_zeus_addModules;
 
-// Assign player object as curator if defined
-[] spawn STNE_fnc_zeus_addZeus;
+// Show info text middle of screen if in sandbox zeus mode
+if (missionNamespace getVariable ["STNE_sandbox_Zeus", false]) then {
+	[] spawn {
+		waitUntil {sleep 1; !(isNull (getAssignedCuratorLogic player))};
+		private _WelcomeText = [
+			format ["Welcome to %1, %2 !", getText (configfile >> "CfgWorlds" >> worldName >> "description"), (player call BIS_fnc_position) call BIS_fnc_locationDescription],
+			format ["Press %1 to enter Zeus mode", actionKeysNames "curatorInterface"] // https://community.bistudio.com/wiki/inputAction/actions
+		];
+		{
+			[_x, 1, 10, [1,1,1,1], true] spawn BIS_fnc_WLSmoothText;
+		} forEach _WelcomeText;
+	};
+};

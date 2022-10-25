@@ -26,15 +26,6 @@ if ("INIDBI2" in STNE_server_Mods) then {
 	if ("exists" call INIDBI_markers) then {
 		[] call STNE_fnc_database_loadMarkers;
 	};
-	// Mines
-	if (missionNamespace getVariable ["STNE_database_Mines", false]) then {
-		// Read editor placed mines, need sleep to detect mines added by editor module
-		sleep 1;
-		STNE_editor_Mines = allMines;
-		if ("exists" call INIDBI_mines) then {
-			[] call STNE_fnc_database_loadMines;
-		};
-	};
 	// Buildings
 	if ("exists" call INIDBI_buildings) then {
 		private _BuildingIDs = "getSections" call INIDBI_buildings;
@@ -71,13 +62,24 @@ if ("INIDBI2" in STNE_server_Mods) then {
 			};
 		} forEach _ObjectIDs;
 	};
-	// Delayed load
+	// Objects, delayed load
 	{
 		[_x] call STNE_fnc_database_loadObject;
 	} forEach _ObjectIDsDelayed;
 	{
 		[_x] call STNE_fnc_database_loadStatic;
 	} forEach _StaticIDsDelayed;
+	// Mines
+	if (missionNamespace getVariable ["STNE_database_Mines", false]) then {
+		// Read editor placed mines, need sleep to detect mines added by editor module
+		[] spawn {
+			sleep 1;
+			STNE_editor_Mines = allMines;
+			if ("exists" call INIDBI_mines) then {
+				[] call STNE_fnc_database_loadMines;
+			};
+		};
+	};
 };
 
 publicVariable "STNE_database_AllObjects";

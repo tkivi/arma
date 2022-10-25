@@ -14,7 +14,7 @@
 
 params ["_selected_object"];
 
-if ((count (missionNamespace getVariable ["STNE_arsenal_Loadouts", [[],[]]] select 0)) > 0) then {
+if ((count (missionNamespace getVariable ["STNE_loadout_Arsenal", [[],[]]] select 0)) > 0) then {
     {
         _selected_object addAction
         [
@@ -46,5 +46,5 @@ if ((count (missionNamespace getVariable ["STNE_arsenal_Loadouts", [[],[]]] sele
             "",     // selection
             ""      // memoryPoint
         ];
-    } forEach (STNE_arsenal_Loadouts select 0);
+    } forEach (STNE_loadout_Arsenal select 0);
 };

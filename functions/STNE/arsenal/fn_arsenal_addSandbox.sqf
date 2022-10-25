@@ -40,7 +40,7 @@
 			_MarkerName setMarkerText _MarkerText;
 			_MarkerName setMarkerColor _MarkerColor;
 			// LOADOUTS
-			if ((count (missionNamespace getVariable ["STNE_arsenal_Loadouts", [[],[]]] select 0)) > 0) then {
+			if ((count (missionNamespace getVariable ["STNE_loadout_Arsenal", [[],[]]] select 0)) > 0) then {
 				private _LoadoutBox = "Box_NATO_Support_F" createVehicle (markerPos _x);
 				clearWeaponCargoGlobal _LoadoutBox;
 				clearMagazineCargoGlobal _LoadoutBox;

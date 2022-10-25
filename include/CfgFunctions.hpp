@@ -72,6 +72,7 @@
 		};
 		class server {
 			file = "functions\STNE\server";
+			class server_addFortifyACE {};
 			class server_addGroup {};
 			class server_addGroupCustom {};
 			class server_getMods {preInit = 1;};

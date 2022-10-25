@@ -1,5 +1,5 @@
 // ZEUS MODULE: DCSARMA - Add Loadout Actions
-if ((count (missionNamespace getVariable ["STNE_arsenal_Loadouts", [[],[]]] select 0)) > 0) then {
+if ((count (missionNamespace getVariable ["STNE_loadout_Arsenal", [[],[]]] select 0)) > 0) then {
 	["DCSARMA Arsenal", "Add Loadout Actions",
 		{
 			private _module_position = param [0, [0,0,0], [[]]];

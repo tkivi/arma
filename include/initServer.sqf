@@ -1,13 +1,3 @@
-// Sandbox Arsenal
-if (missionNamespace getVariable ["STNE_sandbox_Arsenal", false]) then {
-	[] call STNE_fnc_arsenal_addSandbox;
-};
-
-// Set server viewDistance
-if ((missionNamespace getVariable ["STNE_server_ViewDistance", 0]) > 0) then {
-	[STNE_server_ViewDistance] call STNE_fnc_server_setViewDistance;
-};
-
 // Persistent database
 if (missionNamespace getVariable ["STNE_database_Enabled", false]) then {
 	if ("INIDBI2" in STNE_server_Mods) then {
@@ -46,12 +36,27 @@ if (missionNamespace getVariable ["STNE_database_Enabled", false]) then {
 	};
 };
 
-// Server init is done
-STNE_server_Init = true;
-publicVariable "STNE_server_Init";
+// ACE Fortify
+if ("ACE" in STNE_server_Mods && count (missionNamespace getVariable ["STNE_ace_Fortify", []]) > 0) then {
+	[STNE_ace_Fortify] call STNE_fnc_server_addFortifyACE;
+};
+
+// Sandbox Arsenal
+if (missionNamespace getVariable ["STNE_sandbox_Arsenal", false]) then {
+	[] call STNE_fnc_arsenal_addSandbox;
+};
+
+// Set server viewDistance
+if ((missionNamespace getVariable ["STNE_server_ViewDistance", 0]) > 0) then {
+	[STNE_server_ViewDistance] call STNE_fnc_server_setViewDistance;
+};
 
 // Bug fix: https://feedback.bistudio.com/T126030
 // MPclient can't take items in deadbody's vest/uniform/bag When change equipments on eden.
 {
 	_x setUnitLoadout (getUnitLoadout _x);
 } forEach (allUnits - playableUnits);
+
+// Server init is done
+STNE_server_Init = true;
+publicVariable "STNE_server_Init";

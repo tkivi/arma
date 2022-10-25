@@ -19,3 +19,6 @@ if (missionNamespace getVariable ["STNE_database_Enabled", false]) then {
 		[["", "BLACK IN", 1]] remoteExec ["titleText", _Player];
 	};
 };
+
+// Assign player object as curator if defined
+[_Player] spawn STNE_fnc_zeus_addZeus;
