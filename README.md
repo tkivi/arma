@@ -6,7 +6,7 @@ Edit [**config\config.hpp**](config/config.hpp) and [**config\config.sqf**](conf
 
 (optional) You can add your custom music to [**config\music.hpp**](config/music.hpp) or sound to [**config\sound.hpp**](config/sound.hpp).
 
-(optional) You can add unitPlay capture data to [**config\unitplay.sqf**](config/unitplay.sqf).
+(optional) You can add UnitPlay capture data to [**config\unitplay.sqf**](config/unitplay.sqf).
 
 Add your custom briefing script commands to [**initBriefing.sqf**](initBriefing.sqf) if needed.
 
@@ -31,3 +31,7 @@ Database:
   >*if (isServer) then {[this] call STNE_fnc_database_generateID;};*
 - **Trigger: Save all data to database**
   >*if (isServer) then {[] call STNE_fnc_database_writeDatabase;};*
+
+UnitPlay:
+- **Trigger: Run UnitPlay Track, params [Object, "TrackName", EngineOff, ResetLocation, UnloadCargo]**
+  >*[Helicopter, "UnloadCargo", true, false, true] remoteExec ["STNE_fnc_server_runUnitPlay", Helicopter];*
