@@ -29,8 +29,8 @@ STNE_sandbox_Zeus = true;		// Add all players as Zeus, true/false
 // ACE Fortify class names
 STNE_ace_Fortify = ["Land_BagFence_Corner_F","Land_BagFence_End_F","Land_BagFence_Long_F","Land_BagFence_Round_F","Land_BagFence_Short_F","Land_Plank_01_4m_F","Land_Campfire_F"];
 
-// AI
-STNE_ai_EnableAttack = false;	// Set if leader can issue attack commands to the soldiers in his group, true/false
+// Set if AI leader can issue attack commands to the soldiers in his group. If enabled, it will make the group splitup into smaller teams, true/false
+STNE_ai_EnableAttack = false;
 
 // Use extended Vehicle in Vehicle logistic, true/false
 STNE_logistic_ViV = true;
