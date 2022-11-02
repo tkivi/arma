@@ -1,10 +1,12 @@
 # ARMA Mission Framework for DCS Finland community
 
-Version: 221025
+Version: 221102
 
 Edit [**config\config.hpp**](config/config.hpp) and [**config\config.sqf**](config/config.sqf) for your mission needs.
 
-(optional) You can add your custom music [**config\music.hpp**](config/music.hpp) or sound [**config\sound.hpp**](config/sound.hpp).
+(optional) You can add your custom music to [**config\music.hpp**](config/music.hpp) or sound to [**config\sound.hpp**](config/sound.hpp).
+
+(optional) You can add unitPlay capture data to [**config\unitplay.sqf**](config/unitplay.sqf).
 
 Add your custom briefing script commands to [**initBriefing.sqf**](initBriefing.sqf) if needed.
 

@@ -38,6 +38,8 @@ if ("ZEN" in STNE_server_Mods) then {
 		"SpawnServerGroup",
 		"SpawnServerGroupCustom",
 		"ToggleDynamicSimulation",
-		"TraceBullets"
+		"TraceBullets",
+		"UnitPlay",
+		"UnitPlayRecord"
 	];
 };

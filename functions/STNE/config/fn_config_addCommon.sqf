@@ -36,3 +36,4 @@ STNE_icon_Tracers = "a3\modules_f_curator\data\portraittracers_ca.paa";
 STNE_icon_Group = "a3\ui_f_curator\data\displays\rscdisplaycurator\modegroups_ca.paa";
 STNE_icon_Cig = "murshun_cigs\ui\light_cig.paa";
 STNE_icon_Code = "x\zen\addons\modules\ui\code_ca.paa";
+STNE_icon_Play = "a3\ui_f\data\map\diary\icons\unitplayable_ca.paa";

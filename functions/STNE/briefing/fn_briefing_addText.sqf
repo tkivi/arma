@@ -57,6 +57,9 @@ private _Lines = [
 	["    - Spawn arsenal equipment: ", missionNamespace getVariable ["STNE_sandbox_Arsenal", false]] call STNE_fnc_briefing_getLine,
 	["    - Assign all players as Zeus: ", missionNamespace getVariable ["STNE_sandbox_Zeus", false]] call STNE_fnc_briefing_getLine,
 	["", ""] call STNE_fnc_briefing_getLine,
+	["UnitPlay:", ""] call STNE_fnc_briefing_getLine,
+	["    - Captured Tracks: ", count (missionNamespace getVariable ["STNE_unitplay_Data", []])] call STNE_fnc_briefing_getLine,
+	["", ""] call STNE_fnc_briefing_getLine,
 	["Fortify:", ""] call STNE_fnc_briefing_getLine,
 	["    - ACE Fortify objects: ", count (missionNamespace getVariable ["STNE_ace_Fortify", []])] call STNE_fnc_briefing_getLine,
 	["", ""] call STNE_fnc_briefing_getLine,
@@ -91,7 +94,7 @@ private _Lines = [
 	["        - BlindZeus: ", "BLINDZEUS" in (missionNamespace getVariable ["STNE_server_Mods", []])] call STNE_fnc_briefing_getLine,
 	["", ""] call STNE_fnc_briefing_getLine,
 	["Mission Framework by Stone:", ""] call STNE_fnc_briefing_getLine,
-	["    - Version: ", "221025"] call STNE_fnc_briefing_getLine
+	["    - Version: ", "221102"] call STNE_fnc_briefing_getLine
 ];
 
 // Format message

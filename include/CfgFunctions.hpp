@@ -77,6 +77,7 @@
 			class server_addGroupCustom {};
 			class server_getMods {preInit = 1;};
 			class server_getVariables {};
+			class server_runUnitPlay {};
 			class server_setDynamicSimulation {};
 			class server_setViewDistance {};
 			class server_toggleDynamicSimulation {};
