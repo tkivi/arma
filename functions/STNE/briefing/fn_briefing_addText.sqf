@@ -58,7 +58,7 @@ private _Lines = [
 	["    - Assign all players as Zeus: ", missionNamespace getVariable ["STNE_sandbox_Zeus", false]] call STNE_fnc_briefing_getLine,
 	["", ""] call STNE_fnc_briefing_getLine,
 	["UnitPlay:", ""] call STNE_fnc_briefing_getLine,
-	["    - Captured Tracks: ", count (missionNamespace getVariable ["STNE_unitplay_Data", []])] call STNE_fnc_briefing_getLine,
+	["    - Captured tracks: ", count (missionNamespace getVariable ["STNE_unitplay_Data", []])] call STNE_fnc_briefing_getLine,
 	["", ""] call STNE_fnc_briefing_getLine,
 	["Fortify:", ""] call STNE_fnc_briefing_getLine,
 	["    - ACE Fortify objects: ", count (missionNamespace getVariable ["STNE_ace_Fortify", []])] call STNE_fnc_briefing_getLine,
