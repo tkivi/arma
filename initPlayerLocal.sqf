@@ -1,4 +1,6 @@
+#include "config\unitplay.sqf"
 #include "initBriefing.sqf"
+#include "include\initGlobal.sqf"
 #include "include\initPlayerLocal.sqf"
 /*/////////////////////////////////////////////////////////////////////////////////////
 

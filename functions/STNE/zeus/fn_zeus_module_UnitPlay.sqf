@@ -18,7 +18,7 @@ if ((count (missionNamespace getVariable ["STNE_unitplay_Data", []])) > 0) then 
 							[
 								_TrackName,
 								_TrackName,
-								1
+								0
 							],
 							false
 						],
