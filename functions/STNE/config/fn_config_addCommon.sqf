@@ -37,3 +37,4 @@ STNE_icon_Group = "a3\ui_f_curator\data\displays\rscdisplaycurator\modegroups_ca
 STNE_icon_Cig = "murshun_cigs\ui\light_cig.paa";
 STNE_icon_Code = "x\zen\addons\modules\ui\code_ca.paa";
 STNE_icon_Play = "a3\ui_f\data\map\diary\icons\unitplayable_ca.paa";
+STNE_icon_Route = "a3\3den\data\cfgwaypoints\leader_ca.paa";

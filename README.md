@@ -1,6 +1,6 @@
 # ARMA Mission Framework for DCS Finland community
 
-Version: 221103
+Version: 221104
 
 Edit [**config\config.hpp**](config/config.hpp) and [**config\config.sqf**](config/config.sqf) for your mission needs.
 
@@ -33,5 +33,5 @@ Database:
   >*if (isServer) then {[] call STNE_fnc_database_writeDatabase;};*
 
 UnitPlay:
-- **Trigger: Run UnitPlay Track, params [Object, "TrackName", EngineOff, ResetLocation, UnloadCargo]**
+- **Trigger: Run UnitPlay Route, params [Object, "RouteName", EngineOff, ResetLocation, UnloadCargo]**
   >*[Helicopter, "UnloadCargo", true, false, true] remoteExec ["STNE_fnc_server_runUnitPlay", Helicopter];*
