@@ -24,7 +24,7 @@ if (isServer) then {
 		["inidbi2", "INIDBI2"],
 		["cba_main", "CBA"],
 		//["acre_main", "ACRE2"],
-		//["tfar_core", "TFAR"],
+		["tfar_core", "TFAR"],
 		["ace_main", "ACE"],
 		//["acex_main", "ACEX"],
 		//["alive_main", "ALIVE"],

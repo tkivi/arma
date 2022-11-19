@@ -28,6 +28,12 @@
 			class briefing_addText {};
 			class briefing_getLine {};
 		};
+		class chat {
+			file = "functions\STNE\chat";
+			class chat_sendDirect {};
+			class chat_sendRadio {};
+			class chat_showSubtitle {};
+		};
 		class database {
 			file = "functions\STNE\database";
 			class database_generateID {};

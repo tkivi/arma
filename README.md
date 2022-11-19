@@ -1,6 +1,6 @@
 # ARMA Mission Framework for DCS Finland community
 
-Version: 221104
+Version: 221119
 
 Edit [**config\config.hpp**](config/config.hpp) and [**config\config.sqf**](config/config.sqf) for your mission needs.
 

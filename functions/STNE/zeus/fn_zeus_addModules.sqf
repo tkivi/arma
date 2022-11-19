@@ -27,6 +27,8 @@ if ("ZEN" in STNE_server_Mods) then {
 		"AddWSArsenal",
 		"AICharge",
 		"ChangeServerSettings",
+		"ChatDirect",
+		"ChatRadio",
 		"CreateSQF",
 		"DatabaseGenerateID",
 		"DatabaseRemoveID",

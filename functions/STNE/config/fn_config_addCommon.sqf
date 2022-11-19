@@ -16,6 +16,8 @@
 STNE_color_HEX = "#FF9900";
 STNE_color_RGB = [1, 0.6, 0];
 STNE_color_RGBA = [1, 0.6, 0, 1];
+STNE_color_RGBA_common = [0.9, 0.9, 0.9, 1];
+STNE_color_RGBA_side = [0, 0.8, 1, 1];
 
 // ZEN zeus icons
 STNE_icon_Save = "a3\modules_f\data\iconsavegame_ca.paa";
@@ -38,3 +40,5 @@ STNE_icon_Cig = "murshun_cigs\ui\light_cig.paa";
 STNE_icon_Code = "x\zen\addons\modules\ui\code_ca.paa";
 STNE_icon_Play = "a3\ui_f\data\map\diary\icons\unitplayable_ca.paa";
 STNE_icon_Route = "a3\3den\data\cfgwaypoints\leader_ca.paa";
+STNE_icon_Radio = "a3\modules_f_curator\data\portraitradio_ca.paa";
+STNE_icon_Chat = "a3\ui_f\data\igui\rscingameui\rscdisplaychannel\mutechat_ca.paa";

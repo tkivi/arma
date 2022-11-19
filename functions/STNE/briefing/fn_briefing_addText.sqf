@@ -88,13 +88,14 @@ private _Lines = [
 	["        - Zeus Enchanced: ", "ZEN" in (missionNamespace getVariable ["STNE_server_Mods", []])] call STNE_fnc_briefing_getLine,
 	["    Optional mods:", ""] call STNE_fnc_briefing_getLine,
 	["        - INIDBI2: ", "INIDBI2" in (missionNamespace getVariable ["STNE_server_Mods", []])] call STNE_fnc_briefing_getLine,
+	["        - Task Force Radio: ", "TFAR" in (missionNamespace getVariable ["STNE_server_Mods", []])] call STNE_fnc_briefing_getLine,
 	["        - Immersion Cigs: ", "IMMERSIONCIGS" in (missionNamespace getVariable ["STNE_server_Mods", []])] call STNE_fnc_briefing_getLine,
 	["        - MRH Satellite: ", "MRHSATELLITE" in (missionNamespace getVariable ["STNE_server_Mods", []])] call STNE_fnc_briefing_getLine,
 	["        - cTab: ", "CTAB" in (missionNamespace getVariable ["STNE_server_Mods", []])] call STNE_fnc_briefing_getLine,
 	["        - BlindZeus: ", "BLINDZEUS" in (missionNamespace getVariable ["STNE_server_Mods", []])] call STNE_fnc_briefing_getLine,
 	["", ""] call STNE_fnc_briefing_getLine,
 	["Mission Framework by Stone:", ""] call STNE_fnc_briefing_getLine,
-	["    - Version: ", "221104"] call STNE_fnc_briefing_getLine
+	["    - Version: ", "221119"] call STNE_fnc_briefing_getLine
 ];
 
 // Format message
