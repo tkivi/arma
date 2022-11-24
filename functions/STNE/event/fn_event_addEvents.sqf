@@ -54,3 +54,13 @@ if (missionNamespace getVariable ["STNE_logistic_ViV", false]) then {
 		};
 	}, nil, ["Man", "WeaponHolder"], true] call CBA_fnc_addClassEventHandler;
 };
+
+// ACE extended actions
+if (missionNamespace getVariable ["STNE_ace_Actions", false]) then {
+	["ACE_bodyBagObject", "InitPost", {
+		private _Object = param [0, ObjNull, [ObjNull]]; 
+		if !(isNull _Object) then {
+			[_Object, true, [0, 0.7, 0.9], 90] call ace_dragging_fnc_setCarryable;
+		};
+	}, nil, ["Man", "WeaponHolder"], true] call CBA_fnc_addClassEventHandler;
+};

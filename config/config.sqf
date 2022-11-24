@@ -29,11 +29,12 @@ STNE_sandbox_Zeus = true;		// Add all players as Zeus, true/false
 // ACE Fortify class names
 STNE_ace_Fortify = ["Land_BagFence_Corner_F","Land_BagFence_End_F","Land_BagFence_Long_F","Land_BagFence_Round_F","Land_BagFence_Short_F","Land_Plank_01_4m_F","Land_Campfire_F"];
 
+// Logistic / Actions
+STNE_logistic_ViV = true;	// Use extended Vehicle in Vehicle logistic, true/false
+STNE_ace_Actions = true;	// ACE extended actions (carry bodybags etc..), true/false
+
 // AI leader can issue attack commands to the soldiers in his group. If enabled, it will make the group split up into smaller teams, true/false
 STNE_ai_EnableAttack = false;
-
-// Use extended Vehicle in Vehicle logistic, true/false
-STNE_logistic_ViV = true;
 
 // Server viewdistance, meters.
 STNE_server_ViewDistance = 2500;

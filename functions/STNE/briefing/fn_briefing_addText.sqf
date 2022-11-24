@@ -50,8 +50,9 @@ private _Lines = [
 	["Spawnable server groups:", ""] call STNE_fnc_briefing_getLine,
 	["    - Custom groups: ", count (missionNamespace getVariable ["STNE_server_CustomGroups", []])] call STNE_fnc_briefing_getLine,
 	["", ""] call STNE_fnc_briefing_getLine,
-	["Vehicle in Vehicle logistic:", ""] call STNE_fnc_briefing_getLine,
-	["    - Extended version: ", missionNamespace getVariable ["STNE_logistic_ViV", false]] call STNE_fnc_briefing_getLine,
+	["Logistic/Actions:", ""] call STNE_fnc_briefing_getLine,
+	["    - Extended Vehicle in Vehicle: ", missionNamespace getVariable ["STNE_logistic_ViV", false]] call STNE_fnc_briefing_getLine,
+	["    - Extended ACE Actions: ", missionNamespace getVariable ["STNE_ace_Actions", false]] call STNE_fnc_briefing_getLine,
 	["", ""] call STNE_fnc_briefing_getLine,
 	["Sandbox:", ""] call STNE_fnc_briefing_getLine,
 	["    - Spawn arsenal equipment: ", missionNamespace getVariable ["STNE_sandbox_Arsenal", false]] call STNE_fnc_briefing_getLine,
@@ -95,7 +96,7 @@ private _Lines = [
 	["        - BlindZeus: ", "BLINDZEUS" in (missionNamespace getVariable ["STNE_server_Mods", []])] call STNE_fnc_briefing_getLine,
 	["", ""] call STNE_fnc_briefing_getLine,
 	["Mission Framework by Stone:", ""] call STNE_fnc_briefing_getLine,
-	["    - Version: ", "221119"] call STNE_fnc_briefing_getLine
+	["    - Version: ", "221124"] call STNE_fnc_briefing_getLine
 ];
 
 // Format message
