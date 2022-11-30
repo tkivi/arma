@@ -53,7 +53,9 @@ STNE_zeus_PlayerUID = [
 	"76561197994169555",	// Siili
 	"76561198022824843",	// Minni
 	"76561198000493374",	// Paavo
-	"76561198058757308"		// Ryge
+	"76561198058757308",	// Ryge
+	"76561197973689392",	// SgtArmyGuy
+	"76561198023767321"		// Danthalas
 ];
 
 // Zeus Enchanced initial global AI skill, values between 0 - 1.
