@@ -96,7 +96,7 @@ private _Lines = [
 	["        - BlindZeus: ", "BLINDZEUS" in (missionNamespace getVariable ["STNE_server_Mods", []])] call STNE_fnc_briefing_getLine,
 	["", ""] call STNE_fnc_briefing_getLine,
 	["Mission Framework by Stone:", ""] call STNE_fnc_briefing_getLine,
-	["    - Version: ", "221124"] call STNE_fnc_briefing_getLine
+	["    - Version: ", "230215"] call STNE_fnc_briefing_getLine
 ];
 
 // Format message

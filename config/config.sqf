@@ -47,6 +47,10 @@ STNE_server_CustomGroups = [
 	["Partio auto",	["B_Soldier_F","B_Soldier_F","B_Soldier_F","B_Truck_01_transport_F"]]
 ];
 
+// Override class loadout with custom loadout. If class has multiple loadouts, select random.
+// Get class names with all possible loadouts from selected objects in EDEN Editor -> Tools -> Debug Console -> [] call STNE_fnc_eden_getClassLoadouts; -> paste here.
+STNE_init_Loadouts = [["B_Soldier_F",[[[],[],[],["U_C_Journalist",[]],["V_Press_F",[]],[],"H_Cap_press","",[],["ItemMap","","ItemRadio","ItemCompass","ItemWatch",""]],[["hgun_PDW2000_F","","","optic_Aco",["30Rnd_9x21_Mag",30],[],""],[],[],["U_B_GEN_Soldier_F",[["FirstAidKit",1],["16Rnd_9x21_green_Mag",6,17]]],["V_TacVest_blk_POLICE",[]],[],"H_Cap_police","",[],["ItemMap","","ItemRadio","ItemCompass","ItemWatch",""]],[[],[],["hgun_Pistol_heavy_01_F","","","",["11Rnd_45ACP_Mag",15],[],""],["U_Competitor",[["11Rnd_45ACP_Mag",4,15]]],["V_Rangemaster_belt",[]],[],"H_Cap_blk_ION","",[],["ItemMap","","ItemRadio","ItemCompass","ItemWatch",""]]]]];
+
 // Assign players as Zeus by UID.
 STNE_zeus_PlayerUID = [
 	"76561197973228737",	// Stone

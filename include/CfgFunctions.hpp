@@ -60,12 +60,17 @@
 		};
 		class eden {
 			file = "functions\STNE\eden";
+			class eden_getClassLoadouts {};
 			class eden_getClassNames {};
 			class eden_getLoadouts {};
 		};
 		class event {
 			file = "functions\STNE\event";
 			class event_addEvents {preInit = 1;};
+		};
+		class init {
+			file = "functions\STNE\init";
+			class init_setLoadout {};
 		};
 		class save {
 			file = "functions\STNE\save";

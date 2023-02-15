@@ -55,10 +55,31 @@ if (missionNamespace getVariable ["STNE_logistic_ViV", false]) then {
 	}, nil, ["Man", "WeaponHolder"], true] call CBA_fnc_addClassEventHandler;
 };
 
+// Override loadout with custom loadout
+if (count (missionNamespace getVariable ["STNE_init_Loadouts", []]) > 0) then {
+	{
+		missionNamespace setVariable ["STNE_init_Loadouts_" + (_x select 0), (_x select 1), true];
+		// InitPost
+		[(_x select 0), "InitPost", {
+			private _Object = param [0, ObjNull, [ObjNull]];
+			if !(isNull _Object) then {
+				[_Object] call STNE_fnc_init_setLoadout;
+			};
+		}, nil, [], true] call CBA_fnc_addClassEventHandler;
+		// Respawn
+		[(_x select 0), "Respawn", {
+			private _Object = param [0, ObjNull, [ObjNull]];
+			if !(isNull _Object) then {
+				[_Object] call STNE_fnc_init_setLoadout;
+			};
+		}, nil, [], true] call CBA_fnc_addClassEventHandler;
+	} forEach STNE_init_Loadouts;
+};
+
 // ACE extended actions
 if (missionNamespace getVariable ["STNE_ace_Actions", false]) then {
 	["ACE_bodyBagObject", "InitPost", {
-		private _Object = param [0, ObjNull, [ObjNull]]; 
+		private _Object = param [0, ObjNull, [ObjNull]];
 		if !(isNull _Object) then {
 			[_Object, true, [0, 0.7, 0.9], 90] call ace_dragging_fnc_setCarryable;
 		};
